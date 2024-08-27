@@ -34,10 +34,11 @@ include "./codigophp/conexionbs.php";
                     <div class="scroll-y" id="scroll" style="height: 100%;">
                         <div class="conscroll-y" style="height: 100%;">
                             <?php
-                                $sql = "SELECT pedidos.*, aulas.*, cursos.*
+                                $sql = "SELECT pedidos.*, aulas.*, cursos.*, usuarios.*
                                 FROM pedidos
                                 JOIN aulas ON pedidos.id_aula = aulas.id_aulas
                                 JOIN cursos ON pedidos.fk_curso = cursos.id
+                                JOIN usuarios ON pedidos.fk_usuario = usuarios.id_usuario
                             
                                 ORDER BY pedidos.fecha_pedido DESC;
                                 ";  
@@ -47,7 +48,7 @@ include "./codigophp/conexionbs.php";
                                         if (date('Y-m-d') == date('Y-m-d', strtotime($row["fecha_pedido"])) && $row["estado"] == "pendiente") {
                                             echo '<div class="rectangulo4 verde"><h1>'.$row["fecha_pedido"].' '.$row["estado"].'</h1> <p>Aula: '.$row["nombre"].'<br>Curso:'.$row["curso"].' </p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opcionesblanco tocar"></button></div>';
                                         }else{
-                                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["id_aula"].' '.$row["estado"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
+                                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["nombre"].' - '.$row["username"].'<br><strong> Estado: </strong>'.$row["estado"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
                                         }
                                     }
                                 } else {
@@ -79,13 +80,13 @@ include "./codigophp/conexionbs.php";
                             <form action = "./codigophp/borrarpedido.php" method = "post">
                                 <input type="hidden"  name="pedido" id="elim" value="2">
                                 <input type="hidden"  name="pedido" id="estadop" value="pendiente">
-                                <input type = "submit" class="alerta imagen boton" style=" padding-left: 5vh;" value="Cancelar pedido">
+                                <input type="submit" class="alerta imagen boton" style=" padding-left: 5vh;" value="Cancelar pedido">
                             </form>
                             <form action = "./pedido.php" method = "post">
                                 <input type="hidden"  name="estado" value="2">
                                 <input type="hidden"  name="codigo" value="0">
                                 <input type="hidden" name="pedido" id="ver" value="">
-                                <input type = "submit" class="logoboton imagen boton" style=" padding-left: 5vh;" value="Preparar pedido">
+                                <input type="submit" class="logoboton imagen boton" style=" padding-left: 5vh;" value="Preparar pedido">
                             </form>
                         </div>
                     </div>

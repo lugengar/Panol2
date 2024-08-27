@@ -44,7 +44,7 @@ include "./codigophp/añadirpaleta.php"
                     <div class="scroll-x" id="scroll">
                         <div class="conscroll-x">
                             <?php
-                            $sql = "SELECT nombre, descripcion FROM categoria";
+                            $sql = "SELECT nombre, descripcion FROM herramientas";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
