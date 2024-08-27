@@ -1,7 +1,7 @@
 <?php
 include "./codigophp/sesion.php";
 include './codigophp/conexionbs.php';
-include "./codigophp/añadirpaleta.php"
+include './codigophp/añadirpaleta.php';
 
 ?>
 
@@ -43,7 +43,7 @@ include "./codigophp/añadirpaleta.php"
                     <h1>HERRAMIENTAS</h1>
                     <div class="scroll-x" id="scroll">
                         <div class="conscroll-x">
-                            <?php
+                            <?php/*
                             $sql = "SELECT nombre, descripcion FROM herramientas";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
@@ -52,7 +52,7 @@ include "./codigophp/añadirpaleta.php"
                                 }
                             } else {
                                 echo '<p>No se encontraron resultados</p>';
-                            }
+                            }*/
                             ?>
                         </div>
                     </div>
