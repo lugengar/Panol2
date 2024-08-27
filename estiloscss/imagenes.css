@@ -1,0 +1,84 @@
+/*IMAGENES*/
+.equis{
+    background-image: URL(imagenes/x.png);
+    background-size: 2vh;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+.mas{
+    background-image: URL(imagenes/mas.png);
+    background-size: 2vh;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+.lupa{
+    background-image: URL(imagenes/lupa.png);
+    background-size: 2vh;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+.logo{
+    background-image: URL(imagenes/logo.png);
+}
+.signomas{
+    background-image: URL(imagenes/signomas.png);
+}
+.ojo{
+    background-image: URL(imagenes/Ojo.png);
+}
+.basura{
+    background-image: URL(imagenes/Basura.png);
+}
+.avion{
+    background-image: URL(imagenes/Avion.png);
+}
+.intercambio{
+    background-image: URL(imagenes/intercambio.png);
+}
+.mapa{
+    background-image: URL(imagenes/Mapa.png);
+}
+.usuario{
+    background-image: URL(imagenes/User.png);
+}
+.usuariohd{
+    background-image: URL(imagenes/userhd.png);
+}
+.logoboton{
+    background-image: URL(imagenes/botonlogo.png);
+}
+.flecha{
+    background-image: URL(imagenes/Flecha.png);
+}
+.alerta{
+    background-image: URL(imagenes/Alerta.png);
+}
+.alertablanca{
+    background-image: URL(imagenes/Alertab.png);
+}
+.campana{
+    background-image: URL(imagenes/Campana.png);
+}
+.opciones{
+    background-image: URL(imagenes/Opciones.png);
+}
+.opcionesblanco{
+    background-image: URL(imagenes/Opcionesb.png);
+}
+.pañolero{
+    background-image: URL(imagenes/panolero.jpg);
+}
+.sinimagen{
+    background-image: URL(imagenes/sin-imagen.png);
+}
+.imagen{
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+.botonimagen{
+    background-size: contain;
+    background-repeat:no-repeat;
+    background-position: left;
+    padding-left: 2vh;
+}
