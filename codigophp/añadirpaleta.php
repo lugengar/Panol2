@@ -1,6 +1,5 @@
 
     <?php 
-    $_SESSION["id_usuario"] = 4;
     if (isset($_SESSION['id_usuario'])) {
         $sql = "SELECT * FROM `paletas` WHERE fk_usuario = ".$_SESSION["id_usuario"];
 
@@ -11,6 +10,9 @@
                 print_r($colores);
                 implementarcolores($colores);
             }
+        }else{
+            $colores = ["azul" => "#4139E6", "amarillo" => "#caee52", "blanco" => "#FFFFFF", "negro" => "#202427"];
+            implementarcolores($colores);
         }
     }else{
         $colores = ["azul" => "#4139E6", "amarillo" => "#caee52", "blanco" => "#FFFFFF", "negro" => "#202427"];
