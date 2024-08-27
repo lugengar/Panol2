@@ -65,7 +65,7 @@ button, a, input[type="submit"]{
     "CON CON CON"auto
     "FOO FOO FOO"8vh/
     auto auto auto;
-    background-color:#202427;
+    background-color: var(--negro);
 }
 #pagina2{
     position: absolute;
@@ -80,7 +80,7 @@ button, a, input[type="submit"]{
     "CON CON CON"auto
     "FOO FOO FOO"8vh/
     auto auto auto;
-    background-color:#202427;
+    background-color: var(--negro);
 }
 #pagina3{
     position: absolute;
@@ -94,7 +94,7 @@ button, a, input[type="submit"]{
     "SHEA SHEA SHEA"22vh
     "CON CON CON"auto/
     auto auto auto;
-    background-color:#202427;
+    background-color: var(--negro);
 }
 #header{
     padding-left:1vh;
@@ -106,7 +106,7 @@ button, a, input[type="submit"]{
     ". . ." auto/
     5vh auto 5vh;
     grid-area: HEA;
-    background-color:#202427;
+    background-color: var(--negro);
     box-shadow: 1vh 0.5vh 3vh 0vh rgba(61, 58, 230, 0.1);
 }
 #header :nth-child(1){
@@ -528,7 +528,7 @@ option{
 
 
 .contenidosombra{
-    background-color:#202427;
+    background-color: var(--negro);
     grid-area: CON;
     border-radius:4vh 4vh 0vh 0vh;
     display: grid;

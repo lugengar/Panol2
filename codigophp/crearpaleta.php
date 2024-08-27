@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="paletadecolores.php" method="post">
+    <form action="crearpaleta.php" method="post">
         <input type="color" name="color1" id="color1">
         <input type="color" name="color2" id="color2">
         <input type="color" name="color3" id="color3">
@@ -20,7 +20,7 @@
     <button id="boton4">color4</button>
 
     <?php 
-    include "./codigophp/conexionbs.php";
+    include "./conexionbs.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $colores = ["azul" => $_POST["color1"], "amarillo" =>$_POST["color2"], "blanco" => $_POST["color3"], "negro" => $_POST["color4"]];
         $colores2 = json_encode($colores, true);

@@ -6,6 +6,7 @@ session_start();
     header("Location: ./inicio.php");
     exit;
 }*/
+include "./codigophp/conexionbs.php";
 
     include "./codigophp/añadirpaleta.php";
 ?>
