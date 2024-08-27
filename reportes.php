@@ -23,11 +23,13 @@ include "./codigophp/conexionbs.php";
             <p></p>
         </div>
         <div id="contenido">
-            <button class="barra">
-                <div class="mas"></div>
-                    <div>Escribir nuevo reporte</div>
-                    <div></div>
-            </button>
+            <form action="formularioreportes.php">
+                <button class="barra">
+                    <div class="mas"></div>
+                        <div>Escribir nuevo reporte</div>
+                        <div></div>
+                </button>
+            </form>
             <div class="contenido2">
                 <div class="con3" id="inicio">
                 <h1>TUS REPORTES</h1>
