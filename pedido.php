@@ -1,6 +1,8 @@
 <?php
 include "./codigophp/sesion.php";
 include "./codigophp/conexionbs.php";
+include "codigophp/añadirpaleta.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -91,7 +93,7 @@ include "./codigophp/conexionbs.php";
                             $herramientas_ids = $_SESSION['pedido']['herramientas'];
                             $cantidad_pedido = $_SESSION['pedido']['cantidad'];
                             if (!empty($herramientas_ids)) {
-                                $sql = "SELECT * FROM categoria WHERE categoria.id IN (" . implode(",", array_map('intval', $herramientas_ids)) . ")";
+                                $sql = "SELECT * FROM herramientas WHERE herramientas.id IN (" . implode(",", array_map('intval', $herramientas_ids)) . ")";
                                 $result = mysqli_query($conn, $sql);
                                 if ($result->num_rows > 0) {
                                     echo '<h1>HERRAMIENTAS</h1><div class="conscroll-y" >';

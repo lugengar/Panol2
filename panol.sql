@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-07-2024 a las 02:06:41
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 28-08-2024 a las 05:59:37
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,59 +28,36 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aulas` (
-  `id` int(11) NOT NULL,
+  `id_aulas` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `piso` varchar(5) NOT NULL
+  `piso` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `aulas`
 --
 
-INSERT INTO `aulas` (`id`, `nombre`, `piso`) VALUES
-(1, 'salon 1', 'PB'),
-(2, 'salon 2', 'PB'),
-(3, 'salon 11', 'P1'),
-(4, 'salon 12', 'P1'),
-(5, 'salon 13', 'P1'),
-(6, 'salon 14', 'P1'),
-(7, 'salon 15', 'P1'),
-(8, 'salon 16', 'P1'),
-(9, 'salon 17', 'P1'),
-(10, 'salon 18', 'P1'),
-(11, 'salon 19', 'P1'),
-(12, 'taller ciclo basico', 'PB'),
-(13, 'taller 2', 'PB'),
-(14, 'taller 3', 'PB'),
-(15, 'laboratorio de automatismos', 'PB'),
-(16, 'taller de lenguajes tecnologicos', 'PB'),
-(17, 'laboratorio 1', 'P2'),
-(18, 'laboratorio 2', 'P2'),
-(19, 'laboratorio 3', 'P2'),
-(20, 'laboratorio diseño electronico', 'P2');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `categoria`
---
-
-CREATE TABLE `categoria` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `descripcion` varchar(200) NOT NULL,
-  `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `categoria`
---
-
-INSERT INTO `categoria` (`id`, `nombre`, `descripcion`, `cantidad`) VALUES
-(1, 'martillo', 'sin descripción', 2),
-(2, 'escofina', 'sin descripción', 10),
-(3, 'clavos', 'sin descripción', 400),
-(4, 'destornillador', 'sin descripción', 25);
+INSERT INTO `aulas` (`id_aulas`, `nombre`, `piso`) VALUES
+(1, 'Salón 1', 'PB'),
+(2, 'Salón 2', 'PB'),
+(3, 'Salón 11', 'P1'),
+(4, 'Salón 12', 'P1'),
+(5, 'Salón 13', 'P1'),
+(6, 'Salón 14', 'P1'),
+(7, 'Salón 15', 'P1'),
+(8, 'Salón 16', 'P1'),
+(9, 'Salón 17', 'P1'),
+(10, 'Salón 18', 'P1'),
+(11, 'Salón 19', 'P1'),
+(12, 'Taller ciclo básico', 'PB'),
+(13, 'Taller 2', 'PB'),
+(14, 'Taller 3', 'PB'),
+(15, 'Laboratorio de automatismos', 'PB'),
+(16, 'Taller de lenguajes tecnológicos', 'PB'),
+(17, 'Laboratorio 1', 'P2'),
+(18, 'Laboratorio 2', 'P2'),
+(19, 'Laboratorio 3', 'P2'),
+(20, 'Laboratorio diseño electrónico', 'P2');
 
 -- --------------------------------------------------------
 
@@ -89,15 +66,15 @@ INSERT INTO `categoria` (`id`, `nombre`, `descripcion`, `cantidad`) VALUES
 --
 
 CREATE TABLE `cursos` (
-  `id` int(11) NOT NULL,
-  `cursos` varchar(85) NOT NULL
+  `id` int(100) NOT NULL,
+  `curso` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cursos`
 --
 
-INSERT INTO `cursos` (`id`, `cursos`) VALUES
+INSERT INTO `cursos` (`id`, `curso`) VALUES
 (1, '1° 1°'),
 (2, '1° 2°'),
 (3, '1° 3°'),
@@ -123,20 +100,45 @@ INSERT INTO `cursos` (`id`, `cursos`) VALUES
 (23, '6° 2°'),
 (24, '6° 3°'),
 (25, '7° 1°'),
-(26, '7° 2°');
+(28, '7° 2°');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `herramientaxunidad`
+-- Estructura de tabla para la tabla `herramientas`
 --
 
-CREATE TABLE `herramientaxunidad` (
+CREATE TABLE `herramientas` (
   `id` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL,
-  `observacion` varchar(100) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `estado` enum('alta','baja','modificada','') NOT NULL
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(200) NOT NULL,
+  `imagen` varchar(200) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `herramientas`
+--
+
+INSERT INTO `herramientas` (`id`, `nombre`, `descripcion`, `imagen`, `cantidad`) VALUES
+(1, 'martillo', 'sin descripción', '', 0),
+(2, 'escofina', 'sin descripción', '', 1),
+(3, 'clavos', 'sin descripción', '', 100),
+(4, 'destornillador', 'sin descripción', '', 0),
+(5, 'Lima redonda', 'Lima redonda', '', 14),
+(6, 'Lima triangular', 'Lima triangular', '', 13),
+(10, 'Lima cuadrada', 'Lima cuadrada', '../estiloscss/imagenes/herramientas/66ce4ade1cf15.jpg', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `paletas`
+--
+
+CREATE TABLE `paletas` (
+  `id_paletas` int(11) NOT NULL,
+  `colores` longtext NOT NULL,
+  `fk_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -148,13 +150,21 @@ CREATE TABLE `herramientaxunidad` (
 CREATE TABLE `pedidos` (
   `id_pedido` int(11) NOT NULL,
   `fecha_pedido` date NOT NULL,
-  `usuario_solicitante` int(11) NOT NULL,
-  `ubicacion_pedido` int(11) NOT NULL,
-  `estado` enum('pendiente','en curso','entregado','') NOT NULL,
-  `observaciones` varchar(150) NOT NULL,
-  `pedido` longtext NOT NULL,
+  `fk_usuario` int(11) NOT NULL,
+  `id_aula` int(11) NOT NULL,
+  `estado` enum('Pendiente','En curso','Entregado','') NOT NULL,
+  `observaciones` varchar(200) NOT NULL,
+  `pedido` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`pedido`)),
   `fk_curso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `fecha_pedido`, `fk_usuario`, `id_aula`, `estado`, `observaciones`, `pedido`, `fk_curso`) VALUES
+(32, '2024-08-28', 11, 4, 'Pendiente', '', '{\"herramientas\":[3],\"cantidad\":[10]}', 4),
+(33, '2024-08-28', 14, 1, 'Pendiente', '', '{\"herramientas\":[2],\"cantidad\":[1]}', 3);
 
 -- --------------------------------------------------------
 
@@ -166,9 +176,16 @@ CREATE TABLE `reportes` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `id_pedido` int(11) NOT NULL,
-  `id_herramienta` int(11) NOT NULL,
   `observaciones` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`id`, `id_usuario`, `id_pedido`, `observaciones`) VALUES
+(8, 14, 1, 'no hay mas'),
+(9, 14, 1, 'no hay mas');
 
 -- --------------------------------------------------------
 
@@ -180,9 +197,9 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `nombre_completo` varchar(150) NOT NULL,
   `username` varchar(70) NOT NULL,
-  `correo` varchar(100) NOT NULL,
+  `correo` varchar(150) NOT NULL,
   `contrasena` varchar(100) NOT NULL,
-  `cargo` enum('usuario','panolero','admin','') NOT NULL,
+  `cargo` enum('panolero','encargado_panol','admin','') NOT NULL,
   `horario` varchar(20) NOT NULL,
   `fotoperfil` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -192,7 +209,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `username`, `correo`, `contrasena`, `cargo`, `horario`, `fotoperfil`) VALUES
-(4, 'matias de santo', 'matiasds', 'matias@desanto.com', '$2y$10$/6Q5fBQK8Tlpw7KPJ.ZSqODv.GQhyAv2Antdbe0/mXaccPRh4M40q', 'usuario', '', '');
+(11, 'Juan Doe', 'jdoe', 'juan@doe.com', '$2y$10$ZBE.cUR3kaJVdqjCFvnLROWFxC80GVZPnHTqbn8Y17qlpulR0Ej2.', '', '', '../estiloscss/imagenes/fotosperfil/66ce4c0a408c3.jpg'),
+(12, 'juan do', 'jdoe', 'juan@doe.com', '$2y$10$2TtCf2pA1HBJDY/krUlUJuJ8b49xmP8Gktl5.eGHPWM1wMhhrEfIi', '', '', ''),
+(14, 'luciano', 'luciano', 'luciano@gmail.com', '$2y$10$XdkUQobCiUuWNw.shSECtOx68zPqJpquSueOAwPa4jxDnP2M5Lhd6', 'panolero', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -202,13 +221,7 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `username`, `correo`, `
 -- Indices de la tabla `aulas`
 --
 ALTER TABLE `aulas`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_aulas`);
 
 --
 -- Indices de la tabla `cursos`
@@ -217,29 +230,34 @@ ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `herramientaxunidad`
+-- Indices de la tabla `herramientas`
 --
-ALTER TABLE `herramientaxunidad`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
+ALTER TABLE `herramientas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `paletas`
+--
+ALTER TABLE `paletas`
+  ADD PRIMARY KEY (`id_paletas`),
+  ADD KEY `fk_usuario` (`fk_usuario`),
+  ADD KEY `fk_usuario_2` (`fk_usuario`);
 
 --
 -- Indices de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id_pedido`),
-  ADD KEY `usuario_solicitante` (`usuario_solicitante`),
-  ADD KEY `ubicacion_pedido` (`ubicacion_pedido`),
-  ADD KEY `fk_curso` (`fk_curso`);
+  ADD KEY `usuario_solicitante` (`fk_usuario`),
+  ADD KEY `id_aula` (`id_aula`),
+  ADD KEY `fk_pedidos_curso` (`fk_curso`);
 
 --
 -- Indices de la tabla `reportes`
 --
 ALTER TABLE `reportes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_pedido` (`id_pedido`),
-  ADD KEY `id_herramienta` (`id_herramienta`);
+  ADD KEY `id_usuario` (`id_usuario`,`id_pedido`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -255,69 +273,67 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `aulas`
 --
 ALTER TABLE `aulas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_aulas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `cursos`
 --
 ALTER TABLE `cursos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT de la tabla `herramientaxunidad`
+-- AUTO_INCREMENT de la tabla `herramientas`
 --
-ALTER TABLE `herramientaxunidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `herramientas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `paletas`
+--
+ALTER TABLE `paletas`
+  MODIFY `id_paletas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `herramientaxunidad`
+-- Filtros para la tabla `paletas`
 --
-ALTER TABLE `herramientaxunidad`
-  ADD CONSTRAINT `herramientaxunidad_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`);
+ALTER TABLE `paletas`
+  ADD CONSTRAINT `paletas_ibfk_1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usuario_solicitante`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`ubicacion_pedido`) REFERENCES `aulas` (`id`),
-  ADD CONSTRAINT `pedidos_ibfk_3` FOREIGN KEY (`fk_curso`) REFERENCES `cursos` (`id`);
+  ADD CONSTRAINT `fk_pedidos_aula` FOREIGN KEY (`id_aula`) REFERENCES `aulas` (`id_aulas`),
+  ADD CONSTRAINT `fk_pedidos_curso` FOREIGN KEY (`fk_curso`) REFERENCES `cursos` (`id`),
+  ADD CONSTRAINT `fk_pedidos_usuario` FOREIGN KEY (`fk_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `reportes_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
-  ADD CONSTRAINT `reportes_ibfk_3` FOREIGN KEY (`id_herramienta`) REFERENCES `herramientaxunidad` (`id`);
+  ADD CONSTRAINT `fk_reportes_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

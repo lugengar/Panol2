@@ -72,20 +72,19 @@ include "./codigophp/añadirpaleta.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validar y limpiar los datos del formulario
     $observaciones = $_POST['observaciones'];
-    $id_herramienta = $_POST['herramientas'];
     $id_pedido = $_POST['pedidos'];
     
     // Obtener el id_usuario de la sesión
     $id_usuario = $_SESSION['id_usuario'];
     
     // Crear la consulta SQL usando un prepared statement
-    $sql = "INSERT INTO reportes (id_usuario, id_pedido, id_herramienta, observaciones) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO reportes (id_usuario, id_pedido, observaciones) VALUES (?, ?, ?)";
     
     // Preparar la consulta
     $stmt = $conn->prepare($sql);
     
     // Vincular parámetros
-    $stmt->bind_param("ssss", $id_usuario, $id_pedido, $id_herramienta, $observaciones);
+    $stmt->bind_param("sss", $id_usuario, $id_pedido, $observaciones);
     
     // Ejecutar la consulta
     if ($stmt->execute()) {
