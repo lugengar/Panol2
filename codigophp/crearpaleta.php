@@ -21,21 +21,22 @@
 
     <?php 
     include "./conexionbs.php";
+    session_start();
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $colores = ["azul" => $_POST["color1"], "amarillo" =>$_POST["color2"], "blanco" => $_POST["color3"], "negro" => $_POST["color4"]];
         $colores2 = json_encode($colores, true);
 
         $sql = "INSERT INTO `paletas`(`colores`, `fk_usuario`) VALUES (?,?)";
-        $a = 4;
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("si", $colores2, $a);
+        $stmt->bind_param("ss", $colores2, $_SESSION["id_usuario"]);
         $stmt->execute();
         print_r($colores);
 
         implementarcolores($colores);
         $stmt->close();
     }else{
-        $sql = "SELECT * FROM `paletas` WHERE fk_usuario = 4";
+        $sql = "SELECT * FROM `paletas` WHERE fk_usuario = ".$_SESSION["id_usuario"];
 
         $result = mysqli_query($conn, $sql);
         if ($result->num_rows > 0) {
