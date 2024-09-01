@@ -35,9 +35,9 @@ include "codigophp/conexionbs.php";
                     if ($_SERVER["REQUEST_METHOD"] == "GET") {
                         $sql="";
                         if($_GET['busqueda'] == null){
-                            $sql = "SELECT * FROM categoria";
+                            $sql = "SELECT * FROM herramientas";
                         }else{
-                            $sql = "SELECT * FROM categoria WHERE categoria.nombre = '".$_GET['busqueda']."'";
+                            $sql = "SELECT * FROM herramientas WHERE herramientas.nombre = '".$_GET['busqueda']."'";
                         }
                         $result = mysqli_query($conn, $sql);
                         if ($result->num_rows > 0) {
@@ -63,7 +63,7 @@ include "codigophp/conexionbs.php";
                             }
                         }
                     }else{
-                        $sql = "SELECT * FROM categoria";
+                        $sql = "SELECT * FROM herramientas";
                         $result = mysqli_query($conn, $sql);
                         if ($result->num_rows > 0) {
                             

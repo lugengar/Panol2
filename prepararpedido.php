@@ -42,28 +42,32 @@ if (!isset($_SESSION['id_usuario'])) {
                     <div class="scroll-y" style="height: 100%;">
                         <form class="conscroll-y" method="post" action="./codigophp/crearpedido.php">
                         <?php
-
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            $tipo = trim($_POST['tipo']);
-                            $pedido =  $_POST['pedido'];
-                            if($tipo == "nuevopedido"){
-                                echo '<div class="rectangulo2"><h1>NOMBRE</h1> <p>ROL CURSO</p> <button class="imagen opciones"></button></div>'
-                                echo '<div class="rectangulo2"><h1>AULA</h1> <p>HORARIO</p> <button class="imagen opciones"></button></div>'
-                                if($pedido != null){
-                                    $sql = "SELECT * FROM pedido INNER JOIN aulas ON pedido.ubicacion_pedido = aulas.id_aulas WHERE pedido.usuario_solicitante = ".$_SESSION['id_usuario'];
-                                    $result = $conn->query($sql);
-                                    if ($result->num_rows > 0) {
-                                        while($row = $result->fetch_assoc()) {
-                                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["nombre"]." ".$row["piso"].'</p> <button class="imagen opciones"></button></div>';
-                                        }
-                                    } else {
-                                        echo "<h1>NO HAY PEDIDOS AUN</h1>";
-                                    }
-                                }
-                            }else{
-                                $_SESSION['pedido'] += $_POST['pedido'];
-                            }
-                        }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['tipo'])) {
+        $tipo = trim($_POST['tipo']);
+        $pedido =  $_POST['pedido'];
+        if($tipo == "nuevopedido"){
+            echo '<div class="rectangulo2"><h1>NOMBRE</h1> <p>ROL CURSO</p> <button class="imagen opciones"></button></div>';
+            echo '<div class="rectangulo2"><h1>AULA</h1> <p>HORARIO</p> <button class="imagen opciones"></button></div>';
+            if($pedido != null){
+                $sql = "SELECT * FROM pedido INNER JOIN aulas ON pedido.ubicacion_pedido = aulas.id_aulas WHERE pedido.usuario_solicitante = ".$_SESSION['id_usuario'];
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["nombre"]." ".$row["piso"].'</p> <button class="imagen opciones"></button></div>';
+                    }
+                } else {
+                    echo "<h1>NO HAY PEDIDOS AUN</h1>";
+                }
+            }
+        }else{
+            if (!isset($_SESSION['pedido'])) {
+                $_SESSION['pedido'] = 0;
+            }
+            $_SESSION['pedido'] += $_POST['pedido'];
+        }
+    }
+}
                         ?>
                         </form>
                     </div>
