@@ -1,6 +1,7 @@
 <?php
 include "./codigophp/sesion.php";
 include "codigophp/conexionbs.php";
+include "codigophp/añadirpaleta.php";
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ include "codigophp/conexionbs.php";
             <p></p>
         </div>
         <div id="contenido">
-            <form action="prepararpedido.php" method="post">
+            <form action="pedido.php" method="post">
                 <button class="barra" type="submit">
                     <div class="mas"></div>
                         <div>Crear nuevo pedido</div>
@@ -40,8 +41,9 @@ include "codigophp/conexionbs.php";
                     <div class="scroll-y"  id="scroll" style="height: 100%;">
                         <div class="conscroll-y">
                             <?php
-                                $sql = "SELECT * FROM pedidos WHERE pedidos.fk_usuario = ?";
-                    
+
+                               $sql = "SELECT * FROM pedidos WHERE pedidos.fk_usuario = ?";
+
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("s", $_SESSION['id_usuario']); 
                     $stmt->execute();

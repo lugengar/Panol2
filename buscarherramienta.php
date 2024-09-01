@@ -1,6 +1,7 @@
 <?php
 include "./codigophp/sesion.php";
 include "codigophp/conexionbs.php";
+include "codigophp/añadirpaleta.php";
 
 ?>
 <!DOCTYPE html>

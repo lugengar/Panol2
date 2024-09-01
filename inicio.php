@@ -92,6 +92,7 @@ include './codigophp/añadirpaleta.php';
                         <div class="scroll-y" id="scroll" style="height: 100%; padding-top:2vh;">
                             <div class="conscroll-y">
                                 <a href="codigophp/cerrarsesion.php" class="flecha imagen boton">Cerrar sesión</a>
+                                <a href="codigophp/crearpaleta.php" class="intercambio imagen boton">Cambiar colores</a>
                             </div>
                         </div>
                     </div>
