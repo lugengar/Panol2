@@ -40,7 +40,7 @@ include "codigophp/conexionbs.php";
                     <div class="scroll-y"  id="scroll" style="height: 100%;">
                         <div class="conscroll-y">
                             <?php
-                                $sql = "SELECT * FROM pedidos WHERE pedidos.usuario_solicitante = ?";
+                                $sql = "SELECT * FROM pedidos WHERE pedidos.fk_usuario = ?";
                     
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("s", $_SESSION['id_usuario']); 
