@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    // $estado = $_POST['estadop'];
 
     // Preparar la consulta SQL para eliminar el pedido
-    $sql = "DELETE FROM pedidos WHERE id_pedido = ? AND usuario_solicitante = ?";
+    $sql = "DELETE FROM pedidos WHERE id_pedido = ? AND fk_usuario = ?";
     
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("is", $pedido_id, $_SESSION['id_usuario']);
@@ -24,6 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
-header("Location: ../pedidos.php");
+header("Location: ../notificaciones.php");
 exit;
 ?>
