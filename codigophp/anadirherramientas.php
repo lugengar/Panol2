@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include "./conexionbs.php";
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
             $nombre_aleatorio = uniqid(). '.'. pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
-            $ruta_imagen = '../imagenes/herramientas/'. $nombre_aleatorio;
+            $ruta_imagen = './imagenes/herramientas/'. $nombre_aleatorio;
             move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_imagen);
         } else {
             $ruta_imagen = '';

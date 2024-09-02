@@ -23,6 +23,9 @@
     align-items: center;
     justify-content: center;
 }
+.imagen_herramienta {
+    width: 80%;
+}
 .imagen .divinput{
     width: auto;
     height: auto;
