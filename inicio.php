@@ -21,9 +21,9 @@ include './codigophp/añadirpaleta.php';
 
     <div id="pagina">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
+            <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
 
-            <button class="usuario imagen" id="user"></button>
+            <button class="imagen" id="user"><?php incrustarSVG("imagenes/SVG/user"); ?></button>
 
 
         </div>
@@ -75,10 +75,10 @@ include './codigophp/añadirpaleta.php';
         </div>
         <div id="footer">
             <?php
-             panol('<a href="notificaciones.php" class="campana imagen izquierda">Ver pedidos</a>'); 
+             panol('<a href="notificaciones.php" class="i imagen izquierda">Ver pedidos'.incrustarSVG2("imagenes/SVG/campana").'</a>'); 
             ?>
-            <a href="pedidos.php" class="logoboton imagen centro">Herramientas</a>
-            <a href="reportes.php" class="alerta imagen derecha">Reportes</a>
+            <a href="pedidos.php" class=" imagen centro i">Herramientas <?php incrustarSVG("imagenes/SVG/botonlogo"); ?></a>
+            <a href="reportes.php" class=" imagen derecha i">Reportes<?php incrustarSVG("imagenes/SVG/alerta"); ?></a>
         </div>
         <div id="sombra2" class="sombra">
             <div class="contenidosombra">
@@ -91,8 +91,8 @@ include './codigophp/añadirpaleta.php';
                     <div class="con3" id="inicio">
                         <div class="scroll-y" id="scroll" style="height: 100%; padding-top:2vh;">
                             <div class="conscroll-y">
-                                <a href="codigophp/cerrarsesion.php" class="flecha imagen boton">Cerrar sesión</a>
-                                <a href="codigophp/crearpaleta.php" class="intercambio imagen boton">Cambiar colores</a>
+                                <a href="codigophp/cerrarsesion.php" class="i imagen boton">Cerrar sesión<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
+                                <a href="codigophp/crearpaleta.php" class="i imagen boton">Cambiar colores <?php incrustarSVG("imagenes/SVG/intercambio"); ?></a>
                             </div>
                         </div>
                     </div>

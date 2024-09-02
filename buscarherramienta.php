@@ -17,8 +17,8 @@ include "codigophp/añadirpaleta.php";
 <body>
     <div id="pagina2">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
-            <button class="usuario imagen"></button>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
+            <button class="imagen" ><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         
         <div id="contenido">
@@ -50,9 +50,9 @@ include "codigophp/añadirpaleta.php";
                             echo'<div class="scroll-y" id="scroll" style="height:100%;"><div class="conscroll-y">';
                             while($row = $result->fetch_assoc()) {
                                 if($row["cantidad"] == 0){
-                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen alertablanca" href="formularioreportes.php"></a></div>';
+                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
                                 }else{
-                                    echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen signomas tocar"></a></div>';
+                                    echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
                                 }
                             } 
                             echo'</div></div>';
@@ -73,9 +73,9 @@ include "codigophp/añadirpaleta.php";
                             echo'<div class="scroll-y" id="scroll" style="height:100%;" ><div class="conscroll-y">';
                             while($row = $result->fetch_assoc()) {
                                 if($row["cantidad"] == 0){
-                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen alertablanca" href="formularioreportes.php?herramienta='.$row["id"].'"></a></div>';
+                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php?herramienta='.$row["id"].'">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
                                 }else{
-                                    echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen signomas tocar"></a></div>';
+                                    echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
                                 }
                             } 
                             echo'</div></div>';

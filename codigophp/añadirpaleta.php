@@ -1,5 +1,28 @@
+<?php
 
-    <?php 
+function incrustarSVG($nombreArchivo) {
+    
+    $rutaArchivoSVG = $nombreArchivo.'.svg';
+    
+    if (file_exists($rutaArchivoSVG)) {
+        $contenidoSVG = file_get_contents($rutaArchivoSVG);
+        echo $contenidoSVG;
+    } else {
+        echo "<p>Error: No se pudo cargar el archivo SVG.</p>";
+    }
+}
+
+function incrustarSVG2($nombreArchivo) {
+    
+    $rutaArchivoSVG = $nombreArchivo.'.svg';
+    
+    if (file_exists($rutaArchivoSVG)) {
+        $contenidoSVG = file_get_contents($rutaArchivoSVG);
+        return $contenidoSVG;
+    } else {
+        echo "<p>Error: No se pudo cargar el archivo SVG.</p>";
+    }
+}
     if (isset($_SESSION['id_usuario'])) {
         $sql = "SELECT * FROM `paletas` WHERE fk_usuario = ".$_SESSION["id_usuario"];
 
@@ -27,10 +50,12 @@
                 --amarillo: '.$colores["amarillo"].';
                 --blanco: '.$colores["blanco"].';
                 --negro: '.$colores["negro"].';
+                --sombra: rgba(0, 0, 0, 0.2);
             }
         </style>
         '; 
     }
+
 
     ?>
 

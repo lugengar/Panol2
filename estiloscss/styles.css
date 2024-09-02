@@ -107,7 +107,7 @@ button, a, input[type="submit"]{
     5vh auto 5vh;
     grid-area: HEA;
     background-color: var(--negro);
-    box-shadow: 1vh 0.5vh 3vh 0vh rgba(61, 58, 230, 0.1);
+    box-shadow: 1vh 0.5vh 3vh 0vh var(--sombra);
 }
 #header :nth-child(1){
     grid-area:LOGO;
@@ -142,7 +142,7 @@ button, a, input[type="submit"]{
 #contenido{
     grid-area: CON;
     background-color: var(--blanco);
-    box-shadow: 1vh -0.5vh 3vh 0vh rgba(61, 58, 230, 0.1);
+    box-shadow: 1vh -0.5vh 3vh 0vh var(--sombra);
     border-radius:4vh 4vh 0vh 0vh;
     display: grid;
     position:relative;
@@ -155,7 +155,7 @@ button, a, input[type="submit"]{
 #contenidob{
     grid-area: CON;
     background-color: var(--blanco);
-    box-shadow: 1vh -0.5vh 3vh 0vh rgba(61, 58, 230, 0.1);
+    box-shadow: 1vh -0.5vh 3vh 0vh var(--sombra);
     border-radius:4vh 4vh 0vh 0vh;
     display: grid;
     position:relative;
@@ -189,9 +189,14 @@ button, a, input[type="submit"]{
     color:var(--azul);
 }
 #footer{
-    grid-area: FOO;
+    position: fixed;
+    height: 8dvh;
+    width: 100%;
+    z-index: 100;
+    left: 0%;
+    bottom: 0%;
     background-color: var(--blanco);
-    box-shadow: 1vh -0.5vh 3vh 0vh rgba(208, 207, 238, 1);
+    box-shadow: 1vh -0.5vh 3vh 0vh var(--sombra);
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
@@ -280,6 +285,7 @@ option{
 }
 
 .conscroll-y{
+    padding-bottom: 4dvh;
     overflow: auto; 
     position: relative;
     width: 100%;
@@ -333,7 +339,9 @@ option{
     width: 20vh;
     border-radius: 2vh;
     overflow: hidden;
-    box-shadow: 1vh 1vh 1vh 0vh rgba(208, 207, 238, 1);
+    box-shadow: 0 0.4vh 1vh var(--sombra);
+    border: 0.1vh solid var(--sombra);
+
     display: grid;
     grid-template: 
     "TITULO"1.1vh
@@ -364,8 +372,8 @@ option{
     ". TEXTO . " max-content
     ". . ."1vh/
     1vh auto 1vh;
-    box-shadow: 0.1vh 0.5vh 1vh 0.2vh rgba(208, 207, 238, 1);
-    border: rgba(208, 207, 238, 1) solid 0.1vh;
+    box-shadow: 0 0.4vh 1vh var(--sombra);
+    border: 0.1vh solid var(--sombra);
     display: grid;
     overflow: hidden;
 }
@@ -390,8 +398,8 @@ option{
 }
 .rectangulo2{
     background-color: var(--blanco);
-    height: 12vh;
-    width: 39vh;
+    height: 15vh;
+    width: 42vh;
     border-radius: 2vh;
     display: grid;
     grid-template:
@@ -400,8 +408,8 @@ option{
     ". TEXTO . BOTON . " auto
     ". . . . ."1vh/
     2vh auto auto 8vh 2vh;
-    box-shadow: 0.1vh 0.5vh 1vh 0.2vh rgba(208, 207, 238, 1);
-    border: rgba(208, 207, 238, 1) solid 0.1vh;
+    box-shadow: 0 0.4vh 1vh var(--sombra);
+    border: 0.1vh solid var(--sombra);
 }
 .rectangulo2 h1{
     grid-area: TITULO;
@@ -432,8 +440,8 @@ option{
     ". TEXTO . BOTON . " auto
     ". . . . ."1vh/
     2vh auto auto 8vh 2vh;
-    box-shadow: 0.1vh 0.5vh 1vh 0.2vh rgba(208, 207, 238, 1);
-    border: rgba(208, 207, 238, 1) solid 0.1vh;
+    box-shadow: 0 0.4vh 1vh var(--sombra);
+    border: 0.1vh solid var(--sombra);
 }
 .rectangulo4 h1{
     grid-area: TITULO;
@@ -465,8 +473,8 @@ option{
     ". IMG . TEXTO . BOTON . " auto
     ". . . . . . ."1vh/
     1vh 9vh 2vh auto auto 8vh 2vh;
-    box-shadow: 0.1vh 0.5vh 1vh 0.2vh rgba(208, 207, 238, 1);
-    border: rgba(208, 207, 238, 1) solid 0.1vh;
+    box-shadow: 0 0.4vh 1vh var(--sombra);
+    border: 0.1vh solid var(--sombra);
 }
 .verde{
     background-color: var(--amarillo);
@@ -496,7 +504,8 @@ option{
     grid-area: BOTON;
 }
 /*RESPONSIVE*/
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
+   
     .barra{
         width: 90%;
     }

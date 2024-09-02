@@ -21,8 +21,8 @@ if (!isset($_SESSION['id_usuario'])) {
 <body>
     <div id="pagina2">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
-            <button class="usuario imagen"></button>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
+            <button class="imagen" ><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         
         <div id="contenido">
@@ -72,9 +72,9 @@ if (!isset($_SESSION['id_usuario'])) {
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class="campana imagen izquierda">Notificaciones</a>
-            <a onclick="goBack()" class="flecha imagen centro">Volver al inicio</a>
-            <a href="reportes.php" class="alerta imagen derecha">Reportes</a>
+            <a href="notificaciones.php" class="i imagen izquierda">Notificaciones<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <a onclick="goBack()" class="i imagen centro">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
+            <a href="reportes.php" class="i imagen derecha">Reportes<?php incrustarSVG("imagenes/SVG/alerta"); ?></a>
         </div>
     </div>
     <div id="sombra">

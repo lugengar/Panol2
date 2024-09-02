@@ -28,8 +28,8 @@ function mostrarReportesSegunCargo() {
 <body>
     <div id="pagina">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
-            <button class="usuario imagen"></button>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
+            <button class="imagen" ><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         <div id="subheader">
             <h1>Lista de reportes de <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
@@ -95,13 +95,13 @@ function mostrarReportesSegunCargo() {
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class="campana imagen izquierda">Ver pedidos</a>
-            <a href="pedidos.php" class="logoboton imagen centro">Herramientas</a>
-            <a href="inicio.php" class="flecha imagen derecha">Volver al inicio</a>
-            <?php 
+            <a href="notificaciones.php" class="i imagen izquierda">Ver pedidos<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <a href="pedidos.php" class="i imagen centro">Herramientas<?php incrustarSVG("imagenes/SVG/botonlogo"); ?></a>
+            <a href="inicio.php" class="i imagen derecha">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
+            <?php /*
                 if (mostrarReportesSegunCargo() !== null) {
-                    echo '<a href="reportes.php" class="alerta imagen derecha">Reportes</a>';
-                }
+                    echo '<a href="reportes.php" class="i imagen derecha">Reportes'.incrustarSVG2("imagenes/SVG/flecha").'</a>';
+                }*/
             ?>
         </div>
     </div>

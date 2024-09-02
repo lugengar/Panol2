@@ -17,7 +17,7 @@ include "codigophp/añadirpaleta.php";
 <body>
     <div id="pagina">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
             <button  class="usuario imagen" id="user"></button>
         </div>
         <div id="subheader">
@@ -66,9 +66,9 @@ include "codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class="campana imagen izquierda">Notificaciones</a>
-            <a href="inicio.php" class="flecha imagen centro">Volver al inicio</a>
-            <a href="reportes.php" class="alerta imagen derecha">Reportes</a>
+            <a href="notificaciones.php" class=" imagen izquierda i">Notificaciones<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <a href="inicio.php" class=" imagen centro i">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
+            <a href="reportes.php" class=" imagen derecha i">Reportes<?php incrustarSVG("imagenes/SVG/alerta"); ?></a>
         </div>
     </div>
     <div id="sombra" class="sombra">

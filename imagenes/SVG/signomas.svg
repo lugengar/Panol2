@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="Capa_2" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 180 180"><defs><style>
+.cls-1{fill:var(--azul);}
+.cls-2{fill:var(--amarillo);}
+</style></defs><g id="Capa_1-2"><g><circle class="cls-2" cx="90" cy="90" r="90"/><g><path class="cls-1" d="m125,80H55c-12.87,0-12.89,20,0,20h70c12.87,0,12.89-20,0-20h0Z"/><path class="cls-1" d="m100,125V55c0-12.87-20-12.89-20,0v70c0,12.87,20,12.89,20,0h0Z"/></g></g></g></svg>

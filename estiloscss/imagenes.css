@@ -17,68 +17,49 @@
     background-repeat:no-repeat;
     background-position: center;
 }
-.logo{
-    background-image: URL(imagenes/logo.png);
-}
-.signomas{
-    background-image: URL(imagenes/signomas.png);
-}
-.ojo{
-    background-image: URL(imagenes/Ojo.png);
-}
-.basura{
-    background-image: URL(imagenes/Basura.png);
-}
-.avion{
-    background-image: URL(imagenes/Avion.png);
-}
-.intercambio{
-    background-image: URL(imagenes/intercambio.png);
-}
-.mapa{
-    background-image: URL(imagenes/Mapa.png);
-}
-.usuario{
-    background-image: URL(imagenes/User.png);
-}
-.usuariohd{
-    background-image: URL(imagenes/userhd.png);
-}
-.logoboton{
-    background-image: URL(imagenes/botonlogo.png);
-}
-.flecha{
-    background-image: URL(imagenes/Flecha.png);
-}
-.alerta{
-    background-image: URL(imagenes/Alerta.png);
-}
-.alertablanca{
-    background-image: URL(imagenes/Alertab.png);
-}
-.campana{
-    background-image: URL(imagenes/Campana.png);
-}
-.opciones{
-    background-image: URL(imagenes/Opciones.png);
-}
-.opcionesblanco{
-    background-image: URL(imagenes/Opcionesb.png);
-}
-.pañolero{
-    background-image: URL(imagenes/panolero.jpg);
-}
-.sinimagen{
-    background-image: URL(imagenes/sin-imagen.png);
-}
 .imagen{
-    background-size: contain;
-    background-repeat:no-repeat;
-    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.imagen .divinput{
+    width: auto;
+    height: auto;
+}
+.imagen svg{
+    width: auto;
+   height: 100%;
+  
+}
+
+.d svg{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+ 
+}
+.i, .d{
+    display: block;
+    align-items: none;
+    justify-content: none;
+}
+.i svg{
+    
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+}
+
 .botonimagen{
     background-size: contain;
     background-repeat:no-repeat;
     background-position: left;
     padding-left: 2vh;
+}
+@media (max-width: 1300px) {
+    #footer .i svg{
+        width: 100%;
+    }
 }

@@ -18,8 +18,8 @@ include "codigophp/añadirpaleta.php";
 <body>
     <div id="pagina2">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
-            <button class="usuario imagen" id="user"></button>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
+            <button class="imagen" id="user"><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         
         <div id="contenidob">
@@ -122,8 +122,8 @@ include "codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-            <a href="pedidos.php" class="flecha imagen izquierda">Volver</a>
-            <a onclick="document.getElementById('formulario').submit()" class="avion imagen derecha borde2">Enviar pedido</a>
+            <a href="pedidos.php" class="flecha imagen izquierda i">Volver</a>
+            <a onclick="document.getElementById('formulario').submit()" class=" imagen derecha borde2 i">Enviar pedido<?php incrustarSVG("imagenes/SVG/avion"); ?></a>
         </div>
     </div>
     <div id="sombra" class="sombra">

@@ -16,8 +16,8 @@ include "./codigophp/añadirpaleta.php";
 <body>
     <div id="pagina">
         <div id="header">
-            <a href="inicio.php" class="logo imagen"></a>
-            <button class="usuario imagen"></button>
+           <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
+            <button class="imagen" ><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         <div id="subheader">
             <h1>Lista de reportes de <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
@@ -37,9 +37,9 @@ include "./codigophp/añadirpaleta.php";
                             <input type="hidden" id="herramientas" name="herramientas" value="1">
                             <input type="hidden" id="pedidos" name="pedidos" value="1">
                            
-                            <div class = "signomas imagen boton"> <input type="text" placeHolder="observaciones" id="observaciones" name="observaciones" maxlength="200" required><br></div>
+                            <div class = "izquierda imagen boton"> <input type="text" placeHolder="observaciones" id="observaciones" name="observaciones" maxlength="200" required><br> <?php incrustarSVG("imagenes/SVG/signomas"); ?></div>
 
-                            <div class = "avion imagen boton"> <input type="submit" value="Crear Reporte"></div>
+                            <div class = "izquierda imagen boton"> <input type="submit" value="Crear Reporte"><?php incrustarSVG("imagenes/SVG/avion"); ?></div>
                         
 
                         <script>
@@ -61,9 +61,9 @@ include "./codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class="campana imagen izquierda">Ver pedidos</a>
-            <a href="pedidos.php" class="logoboton imagen centro">Herramientas</a>
-            <a href="inicio.php" class="flecha imagen derecha">Volver al inicio</a>
+            <a href="notificaciones.php" class=" imagen izquierda i">Ver pedidos<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <a href="pedidos.php" class="i imagen centro">Herramientas<?php incrustarSVG("imagenes/SVG/botonlogo"); ?></a>
+            <a href="inicio.php" class=" imagen derecha i">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
         </div>
     </div>
 </body>
