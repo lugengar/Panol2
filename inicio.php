@@ -48,7 +48,7 @@ include './codigophp/añadirpaleta.php';
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo '<a class="cubo" href="./buscarherramienta.php?busqueda='. $row["nombre"] .'"> <h1>' . $row["nombre"] . '</h1> <p>Descripción: ' . $row["descripcion"] . '</p></a>';
+                                    echo '<a class="cubo" href="./buscarherramienta.php?busqueda='. $row["nombre"] .'"> <h1>' . $row["nombre"] . '</h1> <p>' . $row["descripcion"] . '</p></a>';
                                 }
                             } else {
                                 echo '<p>No se encontraron resultados</p>';
