@@ -100,7 +100,7 @@ include "codigophp/añadirpaleta.php";
                                     foreach ($result as $index => $row) {
                                         $cantidad = isset($cantidad_pedido[$index]) ? $cantidad_pedido[$index] : 0;
                                         if ($cantidad >= $row["cantidad"]) {
-                                            echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p style="color:red;">Stock: '.$cantidad.'/'.$row["cantidad"].'</p> <input type="hidden" value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required><a class="imagen opciones"></a></div>';
+                                            echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p style="color:var(--letra_rojo);">Stock: '.$cantidad.'/'.$row["cantidad"].'</p> <input type="hidden" value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required><a class="imagen opciones"></a></div>';
                                         } else {
                                             echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p>Stock: '.$cantidad.'/'.$row["cantidad"].'</p> <input type="hidden"  value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required> <a onclick="console.log(\'a\')" class="imagen opciones"></a></div>';
                                         }

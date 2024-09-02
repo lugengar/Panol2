@@ -50,7 +50,7 @@ include "codigophp/añadirpaleta.php";
                             echo'<div class="scroll-y" id="scroll" style="height:100%;"><div class="conscroll-y">';
                             while($row = $result->fetch_assoc()) {
                                 if($row["cantidad"] == 0){
-                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
+                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:var(--letra_rojo);">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
                                 }else{
                                     echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
                                 }
@@ -73,7 +73,7 @@ include "codigophp/añadirpaleta.php";
                             echo'<div class="scroll-y" id="scroll" style="height:100%;" ><div class="conscroll-y">';
                             while($row = $result->fetch_assoc()) {
                                 if($row["cantidad"] == 0){
-                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:red;">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php?herramienta='.$row["id"].'">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
+                                    echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:var(--letra_rojo);">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php?herramienta='.$row["id"].'">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
                                 }else{
                                     echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
                                 }
@@ -104,7 +104,7 @@ include "codigophp/añadirpaleta.php";
             </button>
             <div class="contenido2">
                 <div class="con3" id="inicio" >
-                <h1 style="color:white;" id="cantidad"></h1>
+                <h1 style="color: var(--letra_blanco);" id="cantidad"></h1>
 
                     <div class="scroll-y" id="scroll" style="height: 100%; padding-top:2vh; width: 40vh;">
                         <form class="conscroll-y" action = "./pedido.php" method = "post">

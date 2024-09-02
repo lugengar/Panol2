@@ -12,7 +12,7 @@
         <input type="color" name="color2" value="#caee52" id="color2">
         <input type="color" name="color3" value="#FFFFFF" id="color3">
         <input type="color" name="color4" value="#202427" id="color4">
-        <input type="submit" value="enviar" style="width: max-content; heigth: 2dvh; color: white; background-color: gray;">
+        <input type="submit" value="enviar" style="width: max-content; heigth: 2dvh; color: var(--letra_blanco); background-color: gray;">
     </form>
  
 

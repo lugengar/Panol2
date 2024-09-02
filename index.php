@@ -32,7 +32,7 @@ include "./codigophp/conexionbs.php";
         <div id="contenido" style="background-color:transparent; box-shadow:none;">
         <div class="contenido2">
                 <div class="con3" id="inicio">
-                    <h1 style="color:white;">Iniciar sesión</h1>
+                    <h1 style="color: var(--letra_blanco);">Iniciar sesión</h1>
                     <div class="scroll-y" id="scroll" style="height: 100%; width:40vh; padding-top: 2vh;">
                         <form class="conscroll-y" method="post"  action="codigophp/iniciosesion.php" method="post">
                             <div class="imagen divinput i"> <input type="text" class=" boton " name="username" id="username" required placeHolder="Nombre"><?php incrustarSVG("imagenes/SVG/signomas"); ?></div>

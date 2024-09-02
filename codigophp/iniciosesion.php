@@ -68,7 +68,7 @@ if ($stmt->num_rows > 0) {
         font-family: "Days One", sans-serif;
         font-size: 6vh;
         font-weight: 200;
-        color: #caee52;
+        color: var(--letra_amarillo);
         cursor: pointer;
     }
 </style>

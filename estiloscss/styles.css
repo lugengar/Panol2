@@ -20,26 +20,26 @@ h1{
     font-family: "Days One", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
 }
 p{
     
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
 }
 input{
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
     border:none;
     background: transparent;
     border-radius:5vh;
 }
 input::placeholder {
-    color: white;
+    color: var(--letra_blanco);
 }
 button{
     background-color: transparent;
@@ -209,7 +209,7 @@ button, a, input[type="submit"]{
     font-family: "Days One", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color:white;
+    color: var(--letra_blanco);
     padding-top: 2vh;
     padding-left:5vh;
     text-align: center;
@@ -223,7 +223,7 @@ button, a, input[type="submit"]{
     font-family: "Days One", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color:white;
+    color: var(--letra_blanco);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,7 +240,7 @@ button, a, input[type="submit"]{
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
     border:none;
     background-color: transparent;
     text-align: center;
@@ -252,7 +252,7 @@ button, a, input[type="submit"]{
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
     border:none;
     text-align: center;
     background-color: transparent;
@@ -260,7 +260,7 @@ button, a, input[type="submit"]{
     padding-left: 2vh;
 }
 option{
-    background-color: var(--azul);
+    background-color: var(--letra_azul);
 }
 
 
@@ -324,14 +324,14 @@ option{
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
 }
 .barra div:nth-child(2){
     padding: 1vh;
     font-family: "Poppins", sans-serif;
     font-size: 2vh;
     font-weight: 200;
-    color: white;
+    color: var(--letra_blanco);
 }
 .cubo{
     background-color:var(--azul);
@@ -350,12 +350,12 @@ option{
     gap: 2vh;
 }
 .cubo h1{
-    color: white;
+    color: var(--letra_blanco);
     grid-area: TITULO;
     text-align: center;
 }
 .cubo p{
-    color: white;
+    color: var(--letra_blanco);
     grid-area: TEXTO;
     font-size: max-content;
     text-align: center;
@@ -381,7 +381,7 @@ option{
     grid-area: TITULO;
 }
 .rectangulo p{
-    color: #202427;
+    color: var(--letra_negro);
     grid-area: TEXTO;
     font-weight: 400;
 
@@ -415,7 +415,7 @@ option{
     grid-area: TITULO;
 }
 .rectangulo2 p{
-    color: #202427;
+    color: var(--letra_negro);
     grid-area: TEXTO;
     font-weight: 400;
     
@@ -447,7 +447,7 @@ option{
     grid-area: TITULO;
 }
 .rectangulo4 p{
-    color: #202427;
+    color: var(--letra_negro);
     grid-area: TEXTO;
     font-weight: 400;
     
@@ -483,17 +483,17 @@ option{
     grid-area: TITULO;
 }
 .rectangulo3 p{
-    color: #202427;
+    color: var(--letra_negro);
     grid-area: TEXTO;
     font-weight: 400;
     
 
 }
 .rectangulo3 img{
-    color: #202427;
+    color: var(--letra_negro);
     grid-area: IMG;
     font-weight: 400;
-    background-color: var(--azul);
+    background-color: var(--letra_azul);
     border-radius: 1vh;
     background-size: 4vh;
 }

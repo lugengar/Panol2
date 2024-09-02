@@ -51,6 +51,11 @@ function incrustarSVG2($nombreArchivo) {
                 --blanco: '.$colores["blanco"].';
                 --negro: '.$colores["negro"].';
                 --sombra: rgba(0, 0, 0, 0.2);
+                --letra_azul: '.$colores["azul"].';
+                --letra_amarillo: '.$colores["amarillo"].';
+                --letra_blanco: '.$colores["blanco"].';
+                --letra_negro: '.$colores["negro"].';
+                --letra_rojo: red;
             }
         </style>
         '; 
