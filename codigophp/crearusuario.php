@@ -18,10 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "./conexionbs.php";
     if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] == 0) {
         $nombre_aleatorio = uniqid(). '.'. pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION);
-        $ruta_imagen = '../estiloscss/imagenes/fotosperfil/'. $nombre_aleatorio;
-        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $ruta_imagen);
+        $guardar_imagen = '../imagenes/fotosperfil/'. $nombre_aleatorio;
+        $ruta_imagen = './imagenes/fotosperfil/'. $nombre_aleatorio;
+        move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $guardar_imagen);
     } else {
-        $ruta_imagen = '';
+        $guardar_imagen = '';
     }
 
     // Insertar el nuevo usuario
@@ -54,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="username" id="username" required><br>
         <label for="cargo">Cargo:</label>
         <select name="cargo" id="cargo">
-            <option value="usuario">Usuario</option>
             <option value="panolero">Pañolero</option>
             <option value="encargado_panol">Encargado de pañol</option>
         </select><br>
