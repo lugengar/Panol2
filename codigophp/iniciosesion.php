@@ -34,7 +34,12 @@ if ($stmt->num_rows > 0) {
             $_SESSION['pedido'] = null;
             $_SESSION['id_usuario'] = $id;
             $login_successful = true;
-            header("Location: ../inicio.php");
+            if ($cargo == "panolero") {
+                header('Location: ../notificaciones.php');
+            }
+            else {
+                header("Location: ../inicio.php");
+            } 
             exit;
         }
     }
