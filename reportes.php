@@ -95,7 +95,9 @@ function mostrarReportesSegunCargo() {
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class="i imagen izquierda">Ver pedidos<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <?php
+                panol('<a href="notificaciones.php" class="i imagen izquierda">Ver pedidos'.incrustarSVG2("imagenes/SVG/campana").'</a>'); 
+            ?>  
             <a href="pedidos.php" class="i imagen centro">Herramientas<?php incrustarSVG("imagenes/SVG/botonlogo"); ?></a>
             <a href="inicio.php" class="i imagen derecha">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
             <?php /*

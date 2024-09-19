@@ -47,13 +47,13 @@ $result = $stmt->get_result();
 
                             <div class="signomas imagen boton">
                                 <select id="pedidos" name="pedidos" required>
-                                <option value="">Seleccione un pedido</option>
+                                <option value="" disabled selected>Seleccione un pedido</option>
                                     <?php while ($row = $result->fetch_assoc()) { ?>
                                         <option value="<?php echo $row['id_pedido']; ?>"></option>
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class = "signomas imagen boton"> <input type="text" placeHolder="observaciones" id="observaciones" name="observaciones" maxlength="200" required><br></div>
+                            <div class = "signomas imagen boton"> <input type="text" placeHolder="Ingrese su reporte" id="observaciones" name="observaciones" maxlength="200" required><br></div>
 
                             <div class = "izquierda imagen boton"> <input type="submit" value="Crear Reporte"><?php incrustarSVG("imagenes/SVG/avion"); ?></div>
                         
@@ -77,7 +77,9 @@ $result = $stmt->get_result();
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class=" imagen izquierda i">Ver pedidos<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <?php
+                panol('<a href="notificaciones.php" class="i imagen izquierda">Ver pedidos'.incrustarSVG2("imagenes/SVG/campana").'</a>'); 
+            ?>
             <a href="pedidos.php" class="i imagen centro">Herramientas<?php incrustarSVG("imagenes/SVG/botonlogo"); ?></a>
             <a href="inicio.php" class=" imagen derecha i">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
         </div>

@@ -41,8 +41,12 @@ include "codigophp/añadirpaleta.php";
                     <div class="scroll-y"  id="scroll" style="height: 100%;">
                         <div class="conscroll-y">
                             <?php
-
-                               $sql = "SELECT * FROM pedidos WHERE pedidos.fk_usuario = ?";
+                               $sql = "SELECT pedidos.*, aulas.*, cursos.*, usuarios.*
+                                FROM pedidos
+                                JOIN aulas ON pedidos.id_aula = aulas.id_aulas
+                                JOIN cursos ON pedidos.fk_curso = cursos.id
+                                JOIN usuarios ON pedidos.fk_usuario = usuarios.id_usuario 
+                                WHERE pedidos.fk_usuario = ?";
 
                     $stmt = $conn->prepare($sql);
                     $stmt->bind_param("s", $_SESSION['id_usuario']); 
@@ -51,7 +55,7 @@ include "codigophp/añadirpaleta.php";
                     
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["id_aula"].' '.$row["estado"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
+                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>Estado: '.$row["estado"].'<br>Salón: '.$row["nombre"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
                         }
                     } else {
                         echo "<h1>NO HAY PEDIDOS AUN</h1>";
@@ -66,7 +70,9 @@ include "codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-            <a href="notificaciones.php" class=" imagen izquierda i">Notificaciones<?php incrustarSVG("imagenes/SVG/campana"); ?></a>
+            <?php
+                panol('<a href="notificaciones.php" class="i imagen izquierda">Ver pedidos'.incrustarSVG2("imagenes/SVG/campana").'</a>'); 
+            ?>
             <a href="inicio.php" class=" imagen centro i">Volver al inicio<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
             <a href="reportes.php" class=" imagen derecha i">Reportes<?php incrustarSVG("imagenes/SVG/alerta"); ?></a>
         </div>
@@ -80,9 +86,9 @@ include "codigophp/añadirpaleta.php";
             </button>
             <div class="contenido2">
                 <div class="con3" id="inicio">
-                    <div class="scroll-y"  id="scroll" style="height: 100%; padding-top:2vh;">
+                    <div class="scroll-y" id="scroll" style="height: 100%; padding-top:2vh;">
                         <div class="conscroll-y">
-                            <form action = "./codigophp/borrarpedido.php" method = "post">
+                            <form>
                                 <input type="hidden"  name="pedido" id="elim" value="2">
                                 <input type="hidden"  name="estado" id="estadop" value="pendiente">
                                 <input type = "submit" class="basura imagen boton" style=" padding-left: 5vh;" value="Eliminar pedido">

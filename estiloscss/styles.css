@@ -50,6 +50,9 @@ button{
 button, a, input[type="submit"]{
     cursor: pointer;
 }
+#pedidos {
+    color: #ffffff !important;
+}
 
 /*ESTRUCTURA*/
 #pagina{
@@ -551,4 +554,8 @@ option{
 
 img.boton-search {
     height: 50%;
+}
+
+div#estado_pedido {
+    display: block;
 }
