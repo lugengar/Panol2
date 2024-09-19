@@ -36,51 +36,44 @@ include './codigophp/añadirpaleta.php';
                     <h1>PEDIDOS DE HOY</h1>
                     <div class="scroll-y" id="scroll" style="height: 100%;">
                         <div class="conscroll-y" style="height: 100%;">
-                        <?php
-                                $sql = "SELECT pedidos.*, aulas.*, cursos.*, usuarios.*
-                                FROM pedidos
-                                JOIN aulas ON pedidos.id_aula = aulas.id_aulas
-                                JOIN cursos ON pedidos.fk_curso = cursos.id
-                                JOIN usuarios ON pedidos.fk_usuario = usuarios.id_usuario
-                            
-                                ORDER BY pedidos.fecha_pedido DESC;
-                                ";  
-                                $result = $conn->query($sql);
-                                if ($result->num_rows > 0) {
-                                    while($row = $result->fetch_assoc()) {
-                                        if (date('Y-m-d') == date('Y-m-d', strtotime($row["fecha_pedido"])) && $row["estado"] == "pendiente") {
-                                            $herramientas_ids = $_SESSION['pedido']['herramientas'];
-                                            $cantidad_pedido = $_SESSION['pedido']['cantidad'];
-                                            $sql_herramientas = "SELECT * FROM herramientas WHERE herramientas.id IN (" . implode(",", array_map('intval', $herramientas_ids)) . ")";
-                                            $result_herramientas = $conn->query($sql_herramientas);
-                                            if ($result_herramientas->num_rows > 0) {
-                                                $herramientas = array();
-                                                while($herramienta = $result_herramientas->fetch_assoc()) {
-                                                    $herramientas[] = $herramienta['nombre'];
-                                                }
-                                            } else {
-                                                $herramientas = array('No se encontraron herramientas');
-                                            }
-                                            echo '<div class="rectangulo4 verde"><h1>'.$row["fecha_pedido"].' '.$row["estado"].'</h1> 
-                                                  <p>Aula: '.$row["nombre"].'<br>Curso:'.$row["curso"].' 
-                                                  <br>Herramientas:';
-                                            foreach($herramientas as $herramienta) {
-                                                echo '<span>'.$herramienta.'</span>, ';
-                                            }
-                                            echo '</p> 
-                                                  <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'">
-                                                  <input type="hidden" name="estado" id="estado" value="'.$row["estado"].'">
-                                                  <input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> 
-                                                  <button class="imagen opcionesblanco tocar"></button></div>';
-                                        } else {
-                                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>'.$row["nombre"].' - '.$row["nombre_completo"].'<br><strong> Estado: </strong>'.$row["estado"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
-                                        }
+                            <?php
+                            $sql = "SELECT pedidos.*, aulas.*, cursos.*, usuarios.*
+        FROM pedidos
+        JOIN aulas ON pedidos.id_aula = aulas.id_aulas
+        JOIN cursos ON pedidos.fk_curso = cursos.id
+        JOIN usuarios ON pedidos.fk_usuario = usuarios.id_usuario
+        ORDER BY pedidos.fecha_pedido DESC;";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    if (date('Y-m-d') == date('Y-m-d', strtotime($row["fecha_pedido"])) && $row["estado"] == "pendiente") {
+                                        
+                                        echo '<div class="rectangulo4 verde">';
+                                        echo '<h1>' . htmlspecialchars($row["fecha_pedido"], ENT_QUOTES, 'UTF-8') . ' ' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '</h1>';
+                                        echo '<p>Aula: ' . htmlspecialchars($row["nombre"], ENT_QUOTES, 'UTF-8') . '<br>Curso: ' . htmlspecialchars($row["curso"], ENT_QUOTES, 'UTF-8') . '</p>';
+                                        echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id_pedido"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<input type="hidden" name="estado" id="estado" value="' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<input type="hidden" name="pedido" id="pedido" value="' . htmlspecialchars($row["pedido"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<button class="imagen opcionesblanco tocar"></button>';
+                                        echo '</div>';
+                                    } else {
+                                        echo '<div class="rectangulo2">';
+                                        echo '<h1>' . htmlspecialchars($row["fecha_pedido"], ENT_QUOTES, 'UTF-8') . '</h1>';
+                                        echo '<p>' . htmlspecialchars($row["nombre"], ENT_QUOTES, 'UTF-8') . ' - ' . htmlspecialchars($row["nombre_completo"], ENT_QUOTES, 'UTF-8') . '<br><strong> Estado: </strong>' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '</p>';
+                                        echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id_pedido"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<input type="hidden" name="estado" id="estado" value="' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<input type="hidden" name="pedido" id="pedido" value="' . htmlspecialchars($row["pedido"], ENT_QUOTES, 'UTF-8') . '">';
+                                        echo '<button class="imagen opciones tocar"></button>';
+                                        echo '</div>';
                                     }
-                                } else {
-                                    echo "<h1>NO HAY PEDIDOS AUN</h1>";
                                 }
-                                $conn->close();
+                            } else {
+                                echo "<h1>NO HAY PEDIDOS AUN</h1>";
+                            }
+                            
+                            
                             ?>
+
                         </div>
                     </div>
                 </div>
@@ -171,6 +164,7 @@ include './codigophp/añadirpaleta.php';
                                         });
                                     });
                                 </script>
+                                
                             </div>
                         </div>
                     </div>
