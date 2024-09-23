@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-09-2024 a las 01:04:36
+-- Tiempo de generación: 20-09-2024 a las 00:31:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -122,13 +122,13 @@ CREATE TABLE `herramientas` (
 
 INSERT INTO `herramientas` (`id`, `nombre`, `descripcion`, `imagen`, `cantidad`) VALUES
 (11, 'Destornillador Phillips', 'Herramienta con punta en forma de cruz para atornillar tornillos con ranuras cruzadas.', './imagenes/herramientas/66d4dec01a407.jpeg', 20),
-(12, 'Destornillador Plano', 'Herramienta con punta plana para atornillar tornillos con ranura recta.', './imagenes/herramientas/66d4dee4993f5.jpeg', 21),
+(12, 'Destornillador Plano', 'Herramienta con punta plana para atornillar tornillos con ranura recta.', './imagenes/herramientas/66d4dee4993f5.jpeg', 18),
 (13, 'Escofina', 'Herramienta abrasiva con una superficie rugosa para desbastar y dar forma a materiales.', './imagenes/herramientas/66d4def38fb8e.jpeg', 11),
-(14, 'Formón', 'Cuchillo de corte con mango y hoja ancha para tallar y esculpir madera.', './imagenes/herramientas/66d4df0dbb2e1.jpeg', 6),
+(14, 'Formón', 'Cuchillo de corte con mango y hoja ancha para tallar y esculpir madera.', './imagenes/herramientas/66d4df0dbb2e1.jpeg', 3),
 (15, 'Lima circular', 'Herramienta de forma redonda con superficie abrasiva para dar forma a materiales curvos.', './imagenes/herramientas/66d4df215beee.jpeg', 8),
-(16, 'Lima cuadrada', 'Lima con sección cuadrada, ideal para trabajar ángulos y superficies planas.', './imagenes/herramientas/66d4df46e2c9d.jpeg', 10),
+(16, 'Lima cuadrada', 'Lima con sección cuadrada, ideal para trabajar ángulos y superficies planas.', './imagenes/herramientas/66d4df46e2c9d.jpeg', 7),
 (17, 'Lima triangular', 'Lima con sección triangular para detalles y ángulos agudos en materiales.', './imagenes/herramientas/66d4df5a442bd.jpeg', 17),
-(18, 'Martillo', 'Herramienta con cabeza pesada y mango para golpear y clavar objetos.', './imagenes/herramientas/66d4df68e8626.jpeg', 15);
+(18, 'Martillo', 'Herramienta con cabeza pesada y mango para golpear y clavar objetos.', './imagenes/herramientas/66d4df68e8626.jpeg', 10);
 
 -- --------------------------------------------------------
 
@@ -142,6 +142,23 @@ CREATE TABLE `paletas` (
   `fk_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `paletas`
+--
+
+INSERT INTO `paletas` (`id_paletas`, `colores`, `fk_usuario`) VALUES
+(1, '{\"azul\":\"#00fbff\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(2, '{\"azul\":\"#4139e6\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(3, '{\"azul\":\"#ff0000\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(4, '{\"azul\":\"#4139e6\",\"amarillo\":\"#ee537a\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(5, '{\"azul\":\"#ffffff\",\"amarillo\":\"#ffffff\",\"blanco\":\"#ffffff\",\"negro\":\"#ffffff\"}', 27),
+(6, '{\"azul\":\"#db37e6\",\"amarillo\":\"#6dee53\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(7, '{\"azul\":\"#e63737\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(8, '{\"azul\":\"#4139e6\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(9, '{\"azul\":\"#000000\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27),
+(10, '{\"azul\":\"#4139e6\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#ffffff\"}', 27),
+(11, '{\"azul\":\"#4139e6\",\"amarillo\":\"#caee52\",\"blanco\":\"#ffffff\",\"negro\":\"#202427\"}', 27);
+
 -- --------------------------------------------------------
 
 --
@@ -153,11 +170,21 @@ CREATE TABLE `pedidos` (
   `fecha_pedido` date NOT NULL,
   `fk_usuario` int(11) NOT NULL,
   `id_aula` int(11) NOT NULL,
-  `estado` enum('Pendiente','En proceso','Enviado','Entregado','Cancelado') NOT NULL,
+  `estado` enum('Pendiente','En proceso','Enviado','Entregado','Devuelto','Cancelado') NOT NULL,
   `observaciones` varchar(200) NOT NULL,
   `pedido` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`pedido`)),
   `fk_curso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id_pedido`, `fecha_pedido`, `fk_usuario`, `id_aula`, `estado`, `observaciones`, `pedido`, `fk_curso`) VALUES
+(35, '2024-09-11', 27, 6, 'Entregado', '', '{\"herramientas\":[12],\"cantidad\":[3]}', 5),
+(36, '2024-09-11', 27, 12, 'Pendiente', '', '{\"herramientas\":[16],\"cantidad\":[3]}', 8),
+(37, '2024-09-13', 28, 4, 'Pendiente', '', '{\"herramientas\":[14],\"cantidad\":[3]}', 7),
+(38, '2024-09-16', 28, 20, 'Pendiente', '', '{\"herramientas\":[18],\"cantidad\":[5]}', 3);
 
 -- --------------------------------------------------------
 
@@ -172,6 +199,13 @@ CREATE TABLE `reportes` (
   `observaciones` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`id`, `id_usuario`, `id_pedido`, `observaciones`) VALUES
+(8, 27, 35, 'Martillo con punta rota');
+
 -- --------------------------------------------------------
 
 --
@@ -185,7 +219,7 @@ CREATE TABLE `usuarios` (
   `correo` varchar(150) NOT NULL,
   `contrasena` varchar(100) NOT NULL,
   `cargo` enum('panolero','encargado_panol','admin','') NOT NULL,
-  `horario` varchar(20) NOT NULL,
+  `horario` varchar(20) DEFAULT NULL,
   `fotoperfil` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -195,7 +229,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_completo`, `username`, `correo`, `contrasena`, `cargo`, `horario`, `fotoperfil`) VALUES
 (27, 'Matias De Santo', 'matiasds', 'matias@desanto.com', '$2y$10$Sjy3NVXgLpZxjAY.75JVD.VsHkSoprb/oRniRl8a9QClZjndDst7q', 'encargado_panol', '', './imagenes/fotosperfil/66e0bb75d1415.png'),
-(28, 'Javier W', 'JaviW', 'javier@panol.com', '$2y$10$uQzlDLISF2hXpfr2w4gM/uP4kFWmkaR.Jw4zXrD.UC8ThRWCihWH2', 'panolero', '', './imagenes/fotosperfil/66e0bc4bef0d2.png');
+(28, 'Javier W', 'JaviW', 'javier@panol.com', '$2y$10$uQzlDLISF2hXpfr2w4gM/uP4kFWmkaR.Jw4zXrD.UC8ThRWCihWH2', 'panolero', '7:45 a 11.55', './imagenes/fotosperfil/66e0bc4bef0d2.png');
 
 --
 -- Índices para tablas volcadas
@@ -240,7 +274,8 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `reportes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`,`id_pedido`);
+  ADD KEY `id_usuario` (`id_usuario`,`id_pedido`),
+  ADD KEY `id_pedido` (`id_pedido`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -274,19 +309,19 @@ ALTER TABLE `herramientas`
 -- AUTO_INCREMENT de la tabla `paletas`
 --
 ALTER TABLE `paletas`
-  MODIFY `id_paletas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_paletas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -316,7 +351,8 @@ ALTER TABLE `pedidos`
 -- Filtros para la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  ADD CONSTRAINT `fk_reportes_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `fk_reportes_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
+  ADD CONSTRAINT `reportes_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
