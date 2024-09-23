@@ -7,10 +7,16 @@ $usuario_id = $_SESSION['id_usuario'];
 $curso = $_POST['curso'];
 $aula = $_POST['aula'];
 $fecha = $_POST['horario'];
-
 $herramientas = $_SESSION['pedido']["herramientas"];
 $cantidades = $_SESSION['pedido']["cantidad"];
 $pedido = json_encode($_SESSION['pedido'], true);
+
+// Verificar si se han seleccionado curso y aula
+if (empty($curso) || empty($aula)) {
+    echo "<script>alert('Debe seleccionar un curso y un aula para enviar el pedido.');</script>";
+    echo "<script>location.href='../pedido.php';</script>";
+    exit;
+}
 
 // Obtener el pedido de la sesión
 for ($i = 0; $i < count($herramientas); $i++) {
@@ -29,8 +35,6 @@ if ($result) {
 } else {
     echo "Error al crear el pedido: " . mysqli_error($conn);
 }
-
-// Crear la consulta SQL para insertar el nuevo pedido en la base de datos
 
 // Cerrar la conexión
 $conn->close();

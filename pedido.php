@@ -140,19 +140,7 @@ include "codigophp/añadirpaleta.php";
                                 <input type="text" style="display:none;" name="estado" value="2">
                                 <input type="text" style="display:none;" name="pedido" value='{"herramientas": [1,2],"cantidad": [10,2]}'>
                                 <input type="submit" class="basura imagen boton" style="padding-left: 5vh;" value="Eliminar herramienta">
-                            </form>       
-                            <form action="./pedido.php" method="post">
-                                <input type="text" style="display:none;" name="estado" value="2">
-                                <input type="text" style="display:none;" name="codigo" value="2">
-                                <input type="text" style="display:none;" name="pedido" value='{"herramientas": [1,2],"cantidad": [10,2]}'>
-                                <input type="submit" class="signomas imagen boton" style="padding-left: 5vh;" value="Editar cantidad">
-                            </form>    
-                            <form action="./pedido.php" method="post">
-                                <input type="text" style="display:none;" name="codigo" value="2">
-                                <input type="text" style="display:none;" name="estado" value="2">
-                                <input type="text" style="display:none;" name="pedido" value='{"herramientas": [1,2],"cantidad": [10,2]}'>
-                                <input type="submit" class="intercambio imagen boton" style="padding-left: 5vh;" value="Reemplazar">
-                            </form>      
+                            </form>     
                         </div>
                     </div>
                 </div>
