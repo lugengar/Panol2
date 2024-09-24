@@ -92,7 +92,7 @@ include "codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-        <a onclick="goBacka()" class="flecha imagen centro">Volver</a>
+        <a onclick="goBacka()" class="flecha imagen i centro">Volver<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
         </div>
     </div>
     <div id="sombra" class="sombra">

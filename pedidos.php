@@ -55,7 +55,7 @@ include "codigophp/añadirpaleta.php";
                     
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
-                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>Estado: '.$row["estado"].'<br>Salón: '.$row["nombre"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar"></button></div>';
+                            echo '<div class="rectangulo2"><h1>'.$row["fecha_pedido"].'</h1> <p>Estado: '.$row["estado"].'<br>Salón: '.$row["nombre"].'</p> <input type="hidden" name="id" id="id" value="'.$row["id_pedido"].'"><input type="hidden" name="estado" id="estado" value="'.$row["estado"].'"><input type="hidden" name="pedido" id="pedido" value="'.htmlspecialchars($row["pedido"],ENT_QUOTES, 'UTF-8').'"> <button class="imagen opciones tocar">'; incrustarSVG("imagenes/SVG/ojo"); echo '</button></div>';
                         }
                     } else {
                         echo "<h1>NO HAY PEDIDOS AUN</h1>";

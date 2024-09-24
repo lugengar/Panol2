@@ -65,7 +65,7 @@ include "codigophp/añadirpaleta.php";
                             }
                         }
                         $fechaHoraActual = date('Y-m-d H:i:s');
-                        echo '<div class="conscroll-y" ><div class="signomas imagen boton"><select name="curso" ><option value="">Elija un curso</option>';
+                        echo '<div class="conscroll-y" ><div class="signomas i imagen boton">'; incrustarSVG("imagenes/SVG/signomas");echo'<select name="curso"><option value="">Elija un curso</option>';
                         $sql = "SELECT * FROM cursos";
                         $result = mysqli_query($conn, $sql);
                         if ($result->num_rows > 0) {
@@ -74,7 +74,7 @@ include "codigophp/añadirpaleta.php";
                             }
                         }
                         echo '</select></div>';
-                        echo '<div class="mapa imagen boton"><select name="aula" ><option value="">Elija un aula</option>';
+                        echo '<div class="mapa imagen i boton">'; incrustarSVG("imagenes/SVG/signomas");echo'<select name="aula" ><option value="">Elija un aula</option>';
                         $sql = "SELECT * FROM aulas";
                         $result = mysqli_query($conn, $sql);
                         if ($result->num_rows > 0) {
@@ -83,7 +83,7 @@ include "codigophp/añadirpaleta.php";
                             }
                         }
                         echo '</select></div>';
-                        echo '<div class="signomas imagen boton"><input type="text" name="horario" value="' . $fechaHoraActual . '" readonly></div></div>';
+                        echo '<div class="signomas i imagen boton" >'; incrustarSVG("imagenes/SVG/signomas");echo'<input type="text" name="horario" value="' . $fechaHoraActual . '" readonly></div></div>';
 
                         if (empty($_SESSION['pedido'])) {
                             echo "<h1>NO HAY HERRAMIENTAS AUN</h1>";
@@ -100,7 +100,7 @@ include "codigophp/añadirpaleta.php";
                                         if ($cantidad >= $row["cantidad"]) {
                                             echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p style="color:var(--letra_rojo);">Stock: '.$cantidad.'</p> <input type="hidden" value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required><a class="imagen opciones"></a></div>';
                                         } else {
-                                            echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p>Cantidad: '.$cantidad.'</p> <input type="hidden"  value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required> <a onclick="console.log(\'a\')" class="imagen opciones"></a></div>';
+                                            echo '<div class="rectangulo2"><h1>'.$row["nombre"].'</h1> <p>Cantidad: '.$cantidad.'</p> <input type="hidden"  value="'.$cantidad.'" min="1" max="'.$row["cantidad"].'" required> <a onclick="console.log(\'a\')" class="imagen opciones">'; incrustarSVG("imagenes/SVG/avion"); echo '</a></div>';
                                         }
                                     }
                                     echo'</div>';
@@ -120,7 +120,7 @@ include "codigophp/añadirpaleta.php";
             </div>
         </div>
         <div id="footer">
-            <a href="pedidos.php" class="flecha imagen izquierda i">Volver</a>
+            <a href="pedidos.php" class="flecha imagen izquierda i">Volver<?php incrustarSVG("imagenes/SVG/flecha"); ?></a>
             <a onclick="document.getElementById('formulario').submit()" class=" imagen derecha borde2 i">Enviar pedido<?php incrustarSVG("imagenes/SVG/avion"); ?></a>
         </div>
     </div>
@@ -139,7 +139,10 @@ include "codigophp/añadirpaleta.php";
                                 <input type="text" style="display:none;" name="codigo" value="2">
                                 <input type="text" style="display:none;" name="estado" value="2">
                                 <input type="text" style="display:none;" name="pedido" value='{"herramientas": [1,2],"cantidad": [10,2]}'>
-                                <input type="submit" class="basura imagen boton" style="padding-left: 5vh;" value="Eliminar herramienta">
+                                <div class="imagen divinput i">
+                                    <input type="submit" class="basura imagen boton" style="padding-left: 5vh;" value="Eliminar herramienta">
+                                    <?php incrustarSVG("imagenes/SVG/basura"); ?>
+                                </div>
                             </form>     
                         </div>
                     </div>

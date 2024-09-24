@@ -65,7 +65,7 @@ include './codigophp/añadirpaleta.php';
                                     }
                                     echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id_pedido"], ENT_QUOTES, 'UTF-8') . '">';
                                     echo '<input type="hidden" name="estado" id="estado" value="' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '">';
-                                    echo '<button class="imagen opcionesblanco tocar"></button>';
+                                    echo '<button class="imagen opcionesblanco tocar">'; incrustarSVG("imagenes/SVG/ojo"); echo'</button>';
                                     echo '</div>';
                                 }
 
@@ -106,20 +106,25 @@ include './codigophp/añadirpaleta.php';
                                 <form action="./codigophp/borrarpedido.php" method="post">
                                     <input type="hidden" name="pedido" id="elim" value="2">
                                     <input type="hidden" name="pedido" id="estadop" value="pendiente">
-                                    <input type="submit" class="alerta imagen boton" style="padding-left: 5vh;"
-                                        value="Cancelar pedido">
+                                    <div class="imagen divinput i">
+                                        <?php incrustarSVG("imagenes/SVG/signomas"); ?>
+                                        </div>
                                 </form>
                                 <form id="formEstado" action="javascript:void(0);">
                                     <input type="hidden" name="id_pedido" id="idPedido" value="">
                                     <input type="hidden" name="estado" id="nuevoEstado" value="">
+                                    <div class="imagen divinput i">
                                     <input type="button" class="logoboton imagen boton" style="padding-left: 5vh;"
                                         value="Editar estado" onclick="toggleDropdown()">
+                                        <?php incrustarSVG("imagenes/SVG/signomas"); ?>
+                                        </div>
                                     <div id="dropdownMenu" class="dropdown-content" style="display: none;">
                                         <a onclick="setEstado('Pendiente')">Pendiente</a>
                                         <a onclick="setEstado('En proceso')">En proceso</a>
                                         <a onclick="setEstado('Enviado')">Enviado</a>
                                         <a onclick="setEstado('Entregado')">Entregado</a>
                                         <a onclick="setEstado('Cancelado')">Cancelado</a>
+                                        </select>
                                     </div>
                                 </form>
                                 <script>

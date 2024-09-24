@@ -41,14 +41,14 @@ include './codigophp/añadirpaleta.php';
             <div class="contenido2">
                 <div class="con3" id="inicio">
                     <h1>HERRAMIENTAS</h1>
-                    <div class="scroll-x" id="scroll">
+                    <div class="scroll-x" id="scroll" style="height: 20vh">
                         <div class="conscroll-x">
                             <?php
-                            $sql = "SELECT nombre, descripcion FROM herramientas";
+                            $sql = "SELECT nombre FROM herramientas";
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
-                                    echo '<a class="cubo" href="./buscarherramienta.php?busqueda='. $row["nombre"] .'"> <h1>' . $row["nombre"] . '</h1> <p>' . $row["descripcion"] . '</p></a>';
+                                    echo '<a class="cubo" href="./buscarherramienta.php?busqueda='. $row["nombre"] .'"> <h1>' . $row["nombre"] . '</h1></a>';
                                 }
                             } else {
                                 echo '<p>No se encontraron resultados</p>';
@@ -57,7 +57,7 @@ include './codigophp/añadirpaleta.php';
                         </div>
                     </div>
                     <h1>PAÑOLEROS</h1>
-                    <div class="scroll-x" id="scroll" style="height: 33vh;">
+                    <div class="scroll-x" id="scroll" style="height: 35vh;">
                         <div class="conscroll-x">
                             <?php
                             $sql = "SELECT nombre_completo, horario, fotoperfil FROM usuarios WHERE cargo = 'panolero' ";

@@ -70,11 +70,10 @@ function mostrarReportesSegunCargo() {
 
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
-                                            echo '<div class="rectangulo2">';
+                                            echo '<div class="rectangulo4">';
                                             echo '<h1>' . htmlspecialchars($row["nombre_completo"]) . '</h1>';
                                             echo '<p>' . htmlspecialchars($row["observaciones"]) . '</p>';
                                             echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id"]) . '">';
-                                            echo '<button class="imagen ojo tocar"></button>';
                                             echo '</div>';
                                         }
                                     } else {

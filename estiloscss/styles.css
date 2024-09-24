@@ -336,21 +336,23 @@ option{
     font-weight: 200;
     color: var(--letra_blanco);
 }
+
+.dropdown-content {
+background-color: white;
+}
+
 .cubo{
     background-color:var(--azul);
-    height: 20vh;
+    height: 15vh;
     width: 20vh;
     border-radius: 2vh;
     overflow: hidden;
     box-shadow: 0 0.4vh 1vh var(--sombra);
     border: 0.1vh solid var(--sombra);
 
-    display: grid;
-    grid-template: 
-    "TITULO"1.1vh
-    "TEXTO" auto/
-    auto;
-    gap: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cubo h1{
     color: var(--letra_blanco);
@@ -433,7 +435,7 @@ option{
 
 .rectangulo4{
     background-color: var(--blanco);
-    height: 15vh;
+    height: max-content;
     width: 39vh;
     border-radius: 2vh;
     display: grid;
