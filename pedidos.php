@@ -18,7 +18,7 @@ include "codigophp/añadirpaleta.php";
     <div id="pagina">
         <div id="header">
            <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
-            <button  class="usuario imagen" id="user"></button>
+           <button class="imagen" id="user"><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         <div id="subheader">
             <h1>Historial de pedidos de <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
