@@ -370,6 +370,16 @@ div#dropdownMenu {
     justify-content: center;
     align-items: center;
 }
+.cubo2{
+    height: 10vh;
+    width: 20vh;
+    border-radius: 2vh;
+    overflow: hidden;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .cubo h1{
     color: var(--letra_blanco);
     grid-area: TITULO;
