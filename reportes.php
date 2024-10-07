@@ -43,7 +43,7 @@ function mostrarReportesSegunCargo() {
             </button>
             <div class="contenido2">
                 <div class="con3" id="inicio">
-                <h1>TUS REPORTES</h1>
+                <h1>REPORTES</h1>
                     <div class="scroll-y" id="scroll" style="height: 100%;">
                         <div class="conscroll-y">  
                             <?php

@@ -91,13 +91,15 @@ include "codigophp/añadirpaleta.php";
                             <form>
                                 <input type="hidden"  name="pedido" id="elim" value="2">
                                 <input type="hidden"  name="estado" id="estadop" value="pendiente">
-                                <input type = "submit" class="basura imagen boton" style=" padding-left: 5vh;" value="Eliminar pedido">
                             </form>
                             <form action = "./pedido.php" method = "post">
                                 <input type="hidden"  name="estado" value="2">
                                 <input type="hidden"  name="codigo" value="0">
                                 <input type="hidden" name="pedido" id="ver" value="">
-                                <input type = "submit" class="ojo imagen boton" style=" padding-left: 5vh;" value="Ver pedido">
+                                <div class="imagen divinput i">
+                                    <input type = "submit" class="ojo imagen boton" style=" padding-left: 5vh;" value="Ver pedido">
+                                    <?php incrustarSVG("imagenes/SVG/ojo"); ?>
+                                </div>
                             </form>
                         </div>
                     </div>

@@ -119,11 +119,11 @@ include './codigophp/añadirpaleta.php';
                                         <?php incrustarSVG("imagenes/SVG/signomas"); ?>
                                         </div>
                                     <div id="dropdownMenu" class="dropdown-content" style="display: none;">
-                                        <a onclick="setEstado('Pendiente')">Pendiente</a>
-                                        <a onclick="setEstado('En proceso')">En proceso</a>
-                                        <a onclick="setEstado('Enviado')">Enviado</a>
-                                        <a onclick="setEstado('Entregado')">Entregado</a>
-                                        <a onclick="setEstado('Cancelado')">Cancelado</a>
+                                        <a class="estados" onclick="setEstado('Pendiente')">Pendiente</a>
+                                        <a class="estados" onclick="setEstado('En proceso')">En proceso</a>
+                                        <a class="estados" onclick="setEstado('Enviado')">Enviado</a>
+                                        <a class="estados" onclick="setEstado('Entregado')">Entregado</a>
+                                        <a class="estados" onclick="setEstado('Cancelado')">Cancelado</a>
                                         </select>
                                     </div>
                                 </form>

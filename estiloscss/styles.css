@@ -337,8 +337,18 @@ option{
     color: var(--letra_blanco);
 }
 
-.dropdown-content {
-background-color: white;
+a.estados {
+    font-family: "Days One", sans-serif;
+    font-size: 2vh;
+    border: 1px solid black;
+    background-color: #4139e6;
+    padding: .3em;
+    border-radius: 1em;
+    color: white;
+}
+
+div#dropdownMenu {
+    margin-top: 2vh;
 }
 
 .cubo{
