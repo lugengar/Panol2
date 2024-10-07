@@ -71,7 +71,7 @@ function mostrarReportesSegunCargo() {
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) {
                                             echo '<div class="rectangulo4">';
-                                            echo '<h1>' . htmlspecialchars($row["nombre_completo"]) . '</h1>';
+                                            echo '<h1>Reporte de pedido: ' . htmlspecialchars($row["id_pedido"]) . '</h1>';
                                             echo '<p>' . htmlspecialchars($row["observaciones"]) . '</p>';
                                             echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id"]) . '">';
                                             echo '</div>';

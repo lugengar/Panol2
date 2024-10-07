@@ -59,11 +59,11 @@ include './codigophp/añadirpaleta.php';
                                     echo '<div class="rectangulo4">';
                                     echo '<h1>' . htmlspecialchars($row["fecha_pedido"], ENT_QUOTES, 'UTF-8') . '</h1>';
                                     echo '<p><strong>Aula: </strong>' . htmlspecialchars($row["nombre"], ENT_QUOTES, 'UTF-8') . '<strong> Curso: </strong>' . htmlspecialchars($row["curso"], ENT_QUOTES, 'UTF-8') . '<br><strong>Estado: </strong>' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8');
+                                    echo '<br><strong>Herramientas solicitadas:</strong>';
                                     for ($i = 0; $i < count($herramientas); $i++) {
-                                        echo '<br><strong>Herramientas solicitadas:</strong>';
-                                        echo '<br>' . $herramientas_names[$i] . ' - Cantidad: ' . $cantidades[$i] . '</p>';
+                                        echo '<br>' . $herramientas_names[$i] . ' - Cantidad: ' . $cantidades[$i];
                                     }
-                                    echo '<input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id_pedido"], ENT_QUOTES, 'UTF-8') . '">';
+                                    echo '</p><input type="hidden" name="id" id="id" value="' . htmlspecialchars($row["id_pedido"], ENT_QUOTES, 'UTF-8') . '">';
                                     echo '<input type="hidden" name="estado" id="estado" value="' . htmlspecialchars($row["estado"], ENT_QUOTES, 'UTF-8') . '">';
                                     echo '<button class="imagen opcionesblanco tocar">'; incrustarSVG("imagenes/SVG/ojo"); echo'</button>';
                                     echo '</div>';

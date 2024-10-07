@@ -345,6 +345,12 @@ a.estados {
     padding: .3em;
     border-radius: 1em;
     color: white;
+    transition: .3s ease;
+}
+
+a.estados:hover {
+    background-color: #2e27a5;
+    transition: .3s ease;
 }
 
 div#dropdownMenu {
@@ -446,7 +452,7 @@ div#dropdownMenu {
 .rectangulo4{
     background-color: var(--blanco);
     height: max-content;
-    width: 39vh;
+    width: max-content;
     border-radius: 2vh;
     display: grid;
     grid-template:
