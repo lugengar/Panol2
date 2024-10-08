@@ -29,7 +29,7 @@ function mostrarReportesSegunCargo() {
     <div id="pagina">
         <div id="header">
            <a href="inicio.php" class="imagen"><?php incrustarSVG("imagenes/SVG/logo"); ?></a>
-            <button class="imagen" ><?php incrustarSVG("imagenes/SVG/user"); ?></button>
+           <button class="imagen" id="user"><?php incrustarSVG("imagenes/SVG/user"); ?></button>
         </div>
         <div id="subheader">
             <h1>Lista de reportes de <?php echo htmlspecialchars($_SESSION['username']); ?></h1>

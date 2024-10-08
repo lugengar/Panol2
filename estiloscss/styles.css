@@ -382,6 +382,16 @@ div#dropdownMenu {
     text-align: center;
 
 }
+
+#image-size svg {
+    margin-top: .5vh;
+    height: 80%;
+}
+
+#can {
+    margin-top: 4vh;
+}
+
 .rectangulo{
     background-color: var(--blanco);
     height: max-content;
@@ -419,7 +429,7 @@ div#dropdownMenu {
 }
 .rectangulo2{
     background-color: var(--blanco);
-    height: 15vh;
+    height: max-content;
     width: 42vh;
     border-radius: 2vh;
     display: grid;

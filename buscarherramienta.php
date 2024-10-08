@@ -75,7 +75,7 @@ include "codigophp/añadirpaleta.php";
                                 if($row["cantidad"] == 0){
                                     echo '<div class="rectangulo3 verde"><h1>'.$row["nombre"].'</h1> <img src="" alt="" class="sinimagen imagen" ><p id="can" style="color:var(--letra_rojo);">SIN UNIDADES</p> <input type="number" name="id" id="id" style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i" href="formularioreportes.php?herramienta='.$row["id"].'">'.incrustarSVG2("imagenes/SVG/alertab").'</a></div>';
                                 }else{
-                                    echo '<div class="rectangulo3"><h1>'.$row["nombre"].'</h1> <img src="'.$row["imagen"].'" alt="" class="sinimagen imagen imagen_herramienta" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
+                                    echo '<div class="rectangulo3" id="image-size"><h1>'.$row["nombre"].'</h1> <img src="'.$row["imagen"].'" alt="" class="sinimagen imagen imagen_herramienta" ><p id="can">Stock: '.$row["cantidad"].'</p> <input type="number" name="id" id="id"  style="display:none;" value="'.$row["id"].'"><input type="number" name="id" id="can2" style="display:none;" value="'.$row["cantidad"].'"><a class="imagen i tocar">'.incrustarSVG2("imagenes/SVG/signomas").'</a></div>';
                                 }
                             } 
                             echo'</div></div>';
