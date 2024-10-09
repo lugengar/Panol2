@@ -1,4 +1,50 @@
 <?php
+session_start(); // Iniciar sesión
+
+// Verificar si el usuario ha iniciado sesión y si tiene el cargo de "admin"
+if (!isset($_SESSION['cargo']) || $_SESSION['cargo'] !== 'admin') {
+    // Si no está logueado o su cargo no es admin, redirigir al formulario de login
+    header("Location: admin.php");
+    exit();
+}
+
+// El usuario es admin, continuar mostrando el formulario de creación de usuario
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Usuario</title>
+</head>
+<body>
+    <h1>Formulario de Creación de Usuario</h1>
+
+    <form action="crearusuario.php" method="POST" enctype="multipart/form-data">
+        <!-- El formulario para crear un nuevo usuario -->
+        <label for="nombre_completo">Nombre Completo:</label>
+        <input type="text" name="nombre_completo" id="nombre_completo" required><br>
+
+        <label for="username">Nombre de Usuario:</label>
+        <input type="text" name="username" id="username" required><br>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" name="correo" id="correo" required><br>
+
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" name="contrasena" id="contrasena" required><br>
+
+        <label for="cargo">Cargo:</label>
+        <input type="text" name="cargo" id="cargo" required><br>
+
+        <label for="foto_perfil">Foto de Perfil:</label>
+        <input type="file" name="foto_perfil" id="foto_perfil"><br>
+
+        <input type="submit" value="Crear Usuario">
+    </form>
+
+    <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre_completo = trim($_POST['nombre_completo']);
     $username = trim($_POST['username']);
@@ -41,30 +87,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Registro</title>
-</head>
-<body>
-    <form action="./crearusuario.php" method="post" enctype="multipart/form-data">
-        <label for="nombre_completo">Nombre:</label>
-        <input type="text" name="nombre_completo" id="nombre_completo" required><br>
-        <label for="username">Nombre de usuario:</label>
-        <input type="text" name="username" id="username" required><br>
-        <label for="cargo">Cargo:</label>
-        <select name="cargo" id="cargo">
-            <option value="panolero">Pañolero</option>
-            <option value="encargado_panol">Encargado de pañol</option>
-        </select><br>
-        <label for="correo">Correo electronico:</label>
-        <input type="text" name="correo" id="correo" required><br>
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" id="contrasena" required><br>
-        <label for="foto_perfil">Foto de perfil:</label>
-        <input type="file" name="foto_perfil" id="foto_perfil"><br>
-        <input type="submit" value="Registrarse">
-    </form>
 </body>
 </html>
