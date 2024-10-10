@@ -12,19 +12,28 @@ if (!isset($_SESSION['cargo']) || $_SESSION['cargo'] !== 'admin') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Añadir herramientas</title>
 </head>
 <body>
-    <form action="./anadirherramientas.php" method="post" enctype="multipart/form-data">
-        <label for="nombre">Nombre de herramienta:</label><br>
-        <input type="text" id="nombre" name="nombre"><br><br>
-        <label for="descripcion">Descripción de herramienta:</label>
-        <textarea id="descripcion" name="descripcion"></textarea><br><br>
-        <label for="imagen">Imagen de la herramienta:</label>
-        <input type="file" name="imagen" id="imagen"><br><br>
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad"><br><br>
-        <input type="submit" value="Añadir herramienta">
+    <form action="./anadirherramientas.php" method="post" enctype="multipart/form-data" style="width: 50vh; margin-left: 5vh; margin-top: 5vh;">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de herramienta:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control"><br>
+        </div>
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción de herramienta:</label>
+            <textarea id="descripcion" name="descripcion" class="form-control"></textarea><br>
+        </div>
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen de la herramienta:</label>
+            <input type="file" name="imagen" id="imagen" class="form-control"><br>
+        </div>
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" class="form-control"><br>
+        </div>
+        <input type="submit" value="Añadir herramienta" class="btn btn-primary">
     </form>
     <?php 
 
@@ -62,4 +71,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </html>
