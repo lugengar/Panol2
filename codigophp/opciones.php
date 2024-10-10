@@ -33,9 +33,9 @@ include './añadirpaleta.php';
 
     <div id="pagina">
         <div id="header">
-            <a href="inicio.php" class="imagen"><?php incrustarSVG("../imagenes/SVG/logo"); ?></a>
+            <a class="imagen"><?php incrustarSVG("../imagenes/SVG/logo"); ?></a>
 
-            <button class="imagen" id="user"><?php incrustarSVG("../imagenes/SVG/user"); ?></button>
+            <button class="imagen" id="user"><?php incrustarSVG("../imagenes/SVG/admin"); ?></button>
 
 
         </div>
@@ -72,7 +72,7 @@ include './añadirpaleta.php';
                         <div class="scroll-y" id="scroll" style="height: 100%; padding-top:2vh;">
                             <div class="conscroll-y">
                                 <a href="./cerrarsesion.php" class="i imagen boton">Cerrar sesión<?php incrustarSVG("../imagenes/SVG/flecha"); ?></a>
-                                <a href="./crearpaleta.php" class="i imagen boton">Cambiar colores <?php incrustarSVG("../imagenes/SVG/intercambio"); ?></a>
+                            
                             </div>
                         </div>
                     </div>

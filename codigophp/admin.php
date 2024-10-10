@@ -7,19 +7,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include "./conexionbs.php";
 
-    $sql = "SELECT username, contrasena, cargo FROM usuarios WHERE username = ?";
+    $sql = "SELECT username, contrasena, cargo, id_usuario FROM usuarios WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($db_username, $db_password, $db_cargo);
+        $stmt->bind_result($db_username, $db_password, $db_cargo,$id);
         $stmt->fetch();
 
         if (password_verify($password, $db_password)) {
             $_SESSION['username'] = $db_username;
             $_SESSION['cargo'] = $db_cargo;
+            $_SESSION['pedido'] = null;
+            $_SESSION['id_usuario'] = $id;
 
             if ($db_cargo === 'admin') {
                 header("Location: opciones.php");
@@ -57,7 +59,7 @@ include "./conexionbs.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
+    <title>Administrador</title>
     <link rel="stylesheet" href="../estiloscss/animaciones.css">
     <link rel="stylesheet" href="../estiloscss/styles.css">
     <link rel="stylesheet" href="../estiloscss/imagenes.css">
@@ -68,13 +70,13 @@ include "./conexionbs.php";
             <a class="imagen"> <?php incrustarSVG("../imagenes/SVG/logo"); ?></a>
             <div></div>
         </div>
-        <div id="subheader2" style="background-size:20vh;background-position:bottom; box-shadow:none;" class="imagen"> <?php incrustarSVG("../imagenes/SVG/user"); ?>
+        <div id="subheader2" style="background-size:20vh;background-position:bottom; box-shadow:none;" class="imagen"> <?php incrustarSVG("../imagenes/SVG/admin"); ?>
         </div>
         
         <div id="contenido" style="background-color:transparent; box-shadow:none;">
         <div class="contenido2">
                 <div class="con3" id="inicio">
-                    <h1 style="color: var(--letra_blanco);">Iniciar sesión</h1>
+                    <h1 style="color: var(--letra_blanco);">Iniciar sesión para Administrador</h1>
                     <div class="scroll-y" id="scroll" style="height: 100%; width:40vh; padding-top: 2vh;">
                         <form class="conscroll-y" method="post"  action="./admin.php" method="post">
                             <div class="imagen divinput i"> <input type="text" class=" boton " name="username" id="username" required placeHolder="Nombre"><?php incrustarSVG("../imagenes/SVG/signomas"); ?></div>
